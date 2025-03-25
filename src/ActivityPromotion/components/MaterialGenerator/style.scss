@@ -1,0 +1,95 @@
+
+/* 添加 HarmonyOS Sans SC 字体 */
+@font-face {
+  font-family: 'HarmonyOS Sans SC';
+  src: local('HarmonyOS Sans SC'),format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.material-generator {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.material-subtitle {
+  position: relative;
+}
+.material-logo {
+  display: flex;
+  justify-content: space-between;
+}
+.display-container, .display-offset-container {
+  position: relative;
+  width: 2126px;
+  height: 2126px;
+}
+.time {
+  margin-top: 400px;
+}
+.time-container {
+  display: flex;
+  position: relative;
+  align-items: center;
+}
+.cal-offset {
+  position: absolute;
+  right: 0;
+
+}
+
+.material-product {
+  margin-left: 300px;
+  display: flex;
+  margin-top: 200px;
+  flex-direction: column;
+}
+
+.product-title {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-left: 626px;
+  margin-top: 3%;
+}
+
+.product-subtitle {
+  position: relative;
+  display: flex;
+  align-items: center;  
+  margin-left: 626px;
+}
+
+.product-subtitle-content {
+  display: flex;
+  align-items: center;
+}
+
+.product-subtitle-separator {
+  margin: 0 2%;
+}
+
+.materials-bottom {
+  position: relative;
+}
+.material-scan {
+  position: relative;
+}
+
+.common-i {
+  position: absolute; 
+  font-family: 'HarmonyOS Sans SC';
+  z-index: 1;
+}
+
+.common-t {
+  position: absolute; 
+  font-family: 'HarmonyOS Sans SC';
+  z-index: 2
+}
+
+.material-product-coupon {
+  display: flex;
+  align-items: center;
+}
