@@ -1,27 +1,7 @@
 import { processCommonStyle } from '../../utils'
 
-const SmallFontSize = '330px'
-const MiniFontSize = '215px'
-
-const ContainerLayout = {
-  productSubtitle: {
-    marginLeft: '636px',
-    marginTop: '1.5%',
-    gap: '100px',
-  },
-  materialProductCoupon: {
-    gap: '100px',
-  },
-  materialProductSlash: {
-    type: 'text',
-    content: '/',
-    color: '#FFA59F',
-    fontSize: '200px',
-    lineHeight: '200px',
-  },
-}
-
-const getCouponLayout = coupons => {
+const getCouponLayout = (coupons, sizeInfo) => {
+  const { smallFontSize, miniFontSize } = sizeInfo
   const couponLayout = {}
   coupons.forEach((coupon, couponIndex) => {
     const suffixKey = `${couponIndex}`
@@ -31,16 +11,16 @@ const getCouponLayout = coupons => {
     couponLayout[`materialProductCoupon1${suffixKey}`] = {
       type: 'text',
       text: couponIndex === 0 ? `还送满` : '送满',
-      fontSize: MiniFontSize,
-      lineHeight: MiniFontSize,
+      fontSize: miniFontSize,
+      lineHeight: miniFontSize,
     }
 
     // `xx-xx`
     couponLayout[`materialProductCoupon2${suffixKey}`] = {
       type: 'text',
       text: `${coupon.text.replace('满', '').replace('优惠券', '')}`,
-      fontSize: SmallFontSize,
-      lineHeight: SmallFontSize,
+      fontSize: smallFontSize,
+      lineHeight: smallFontSize,
       fontWeight: '900',
     }
 
@@ -48,18 +28,18 @@ const getCouponLayout = coupons => {
     couponLayout[`materialProductCoupon3${suffixKey}`] = {
       type: 'text',
       text: `优惠券`,
-      fontSize: MiniFontSize,
-      lineHeight: MiniFontSize,
+      fontSize: miniFontSize,
+      lineHeight: miniFontSize,
     }
   })
   return processCommonStyle({
     ...couponLayout,
-    ...ContainerLayout,
   })
 }
 
-export function renderCouponLayout(coupons) {
-  const couponLayout = getCouponLayout(coupons)
+export function renderCouponLayout(coupons, processedStyle) {
+  const { sizeInfo, ...rest } = processedStyle
+  const couponLayout = { ...rest, ...getCouponLayout(coupons, sizeInfo) }
   if (!coupons.length) {
     return null
   }

@@ -1,7 +1,7 @@
-import { WindowPromotionRect } from '../../../channels'
+import { CashierCardRect } from '../../../channels'
 import { MaterialChannels } from '../../../constant'
 
-const TitleFontSize = '130px'
+const TitleFontSize = '220px'
 
 const CouponLayout = {
   productSubtitle: {
@@ -15,19 +15,19 @@ const CouponLayout = {
   materialProductSlash: {
     type: 'text',
     content: '/',
-    color: '#FFA59F',
-    fontSize: '20px',
-    lineHeight: '20px',
+    color: '#FBEF02',
+    fontSize: 48,
+    lineHeight: '48px',
   },
 }
 
 const ProductLayout = {
   productsContainer: {
-    marginTop: '120px',
-    marginLeft: '168px',
+    marginTop: 200,
+    marginLeft: 288,
   },
   productContainer: {
-    marginTop: '68px',
+    marginTop: 84,
     position: 'relative',
   },
   productTitle: {
@@ -39,7 +39,7 @@ export const TopLayout = {
   // 物料标题：甜蜜开业季储值送现金
   materialTitle: {
     type: 'text',
-    marginTop: '100px',
+    marginTop: '124px',
     fontSize: TitleFontSize,
     fontWeight: '900',
     lineHeight: TitleFontSize,
@@ -53,7 +53,7 @@ export const TopLayout = {
     fontSize: TitleFontSize,
     fontWeight: '900',
     lineHeight: TitleFontSize,
-    marginTop: '36px',
+    marginTop: '69px',
     content: '2025.11.11',
     display: 'inline-block',
   },
@@ -61,8 +61,8 @@ export const TopLayout = {
     type: 'image',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/24/Fp05i5-wAN00Lq0H4NvWybAjtq4_.png',
-    width: 124,
-    height: 48,
+    width: 214,
+    height: 82,
   },
   //具体时间 "11.21"
   materialTimeDateEnd: {
@@ -70,7 +70,7 @@ export const TopLayout = {
     fontSize: TitleFontSize,
     fontWeight: '900',
     lineHeight: TitleFontSize,
-    marginTop: '36px',
+    marginTop: '69px',
     content: '11.21',
     display: 'inline-block',
   },
@@ -78,8 +78,8 @@ export const TopLayout = {
     type: 'image',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/24/Fh2nX8kZNNbCWEyTCed70fPPTZRq.png',
-    width: '105px',
-    height: '105px',
+    width: 180,
+    height: 180,
   },
   // 最外层的 container
   container1: {
@@ -88,18 +88,66 @@ export const TopLayout = {
   },
 }
 
+export const BottomLayout = {
+  materialScanText1: {
+    type: 'text',
+    content: '扫码参与',
+    color: '#fff',
+    fontSize: 80,
+    lineHeight: '80px',
+    marginTop: '2.2%',
+  },
+  materialScanText2: {
+    type: 'text',
+    content: '使用小程序即可充值',
+    color: '#fff',
+    fontSize: 96,
+    lineHeight: '96px',
+    marginTop: '1.5%',
+  },
+  materialScanText3: {
+    type: 'text',
+    content: '本次活动最终解释权归活动方所有',
+    color: '#fff',
+    fontSize: 48,
+    lineHeight: '48px',
+    marginTop: '1.5%',
+  },
+  materialQrcode: {
+    type: 'image',
+    content:
+      'https://img01.yzcdn.cn/upload_files/2025/03/23/Fo4F1M1ez5njdBxUxEzQg8EBR5Oy.png',
+    width: 700,
+    height: 700,
+    marginLeft: 156,
+  },
+  bottomContainer: {
+    position: 'absolute',
+    bottom: '0%',
+    height: '21%',
+    width: '100%',
+    display: 'flex',
+    textAlign: 'start',
+  },
+  scanTextContainer: {
+    marginLeft: 80,
+    marginTop: 380,
+    position: 'relative',
+  },
+}
+
 export default {
-  id: MaterialChannels.windowPromotion,
+  id: MaterialChannels.cashierCard,
   layouts: {
     sizeInfo: {
-      largeFontSize: '250px',
-      normalFontSize: '100px',
-      smallFontSize: '56px',
-      miniFontSize: '38px',
+      largeFontSize: '310px',
+      normalFontSize: '124px',
+      smallFontSize: '68px',
+      miniFontSize: '48px',
     },
     materialGenerator: {
-      width: WindowPromotionRect.width,
-      height: WindowPromotionRect.height,
+      width: CashierCardRect.width,
+      height: CashierCardRect.height,
       position: 'absolute',
     },
     materialBackground: {
@@ -109,14 +157,15 @@ export default {
       position: 'absolute',
       zIndex: 0,
       previewContent:
-        'https://img01.yzcdn.cn/upload_files/2025/03/26/FrepmMJGVLTfMG4qWRfQcqFRAXYe.png',
+        'https://img01.yzcdn.cn/upload_files/2025/03/26/Fhg7M_GgGPH01i-Li-79LFaOJUAG.png',
       content:
-        'https://img01.yzcdn.cn/upload_files/2025/03/26/FrepmMJGVLTfMG4qWRfQcqFRAXYe.png',
+        'https://img01.yzcdn.cn/upload_files/2025/03/26/Fhg7M_GgGPH01i-Li-79LFaOJUAG.png',
       left: 0,
       top: 0,
     },
     ...ProductLayout,
     ...TopLayout,
     ...CouponLayout,
+    ...BottomLayout
   },
 }

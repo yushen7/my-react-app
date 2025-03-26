@@ -1,6 +1,5 @@
-import { MaterialChannelList } from '../../channels'
 import { MaterialChannels, productList } from '../../constant'
-import { processCommonStyle, processScale } from '../../utils'
+import { processScale } from '../../utils'
 import channels from './channels'
 import { renderBottomLayout } from './layouts/bottomLayout'
 import { renderProductList } from './layouts/productLayout'
@@ -16,6 +15,7 @@ function renderChannel(channel, processedStyle) {
       className="background"
     />
   )
+  console.log(channel, 'channel')
   switch (channel) {
     case MaterialChannels.ylb:
       return (
@@ -62,12 +62,12 @@ export default function TemplateThree() {
         const processedStyle = processScale(
           channel.layouts,
           channel.displayRatio
+          // 1
         )
         return (
           <div
             key={channel.id}
             className="material-generator"
-            data-id="materialGenerator"
             style={processedStyle.materialGenerator}
           >
             {renderChannel(channel.id, processedStyle)}

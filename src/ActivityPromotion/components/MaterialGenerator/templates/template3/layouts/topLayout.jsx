@@ -6,10 +6,14 @@ export const renderTopLayout = processedStyle => {
         {processedStyle.materialTitle.content}
       </div>
 
-      <div>
+      <div
+        style={{
+          textAlign: 'center',
+        }}
+      >
         {/** 时间 */}
         <div
-          data-id="materialTimeDate"
+          data-id="materialTimeDateStart"
           style={processedStyle.materialTimeDateStart}
         >
           {processedStyle.materialTimeDateStart.content}

@@ -1,5 +1,3 @@
-import { YLB, YLBChannel } from "./channels/ylb"
-
 export const MaterialChannels = {
   ylb: 'ylb',
   banner: 'banner',
