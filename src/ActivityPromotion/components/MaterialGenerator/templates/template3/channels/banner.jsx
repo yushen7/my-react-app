@@ -1,5 +1,5 @@
 import { BannerChannelRect } from '../../../channels'
-import { MaterialChannels } from '../../../constant'
+import { MaterialChannel } from '../../../../../constant'
 
 export const TopLayout = {
   // 物料标题：甜蜜开业季储值送现金
@@ -17,7 +17,6 @@ export const TopLayout = {
   materialTimeDateStart: {
     type: 'text',
     fontSize: '130px',
-    fontWeight: '900',
     lineHeight: '130px',
     marginTop: '58px',
     content: '2025.11.11',
@@ -55,7 +54,7 @@ export const TopLayout = {
 }
 
 export default {
-  id: MaterialChannels.banner,
+  id: MaterialChannel.banner,
   layouts: {
     materialGenerator: {
       width: BannerChannelRect.width,

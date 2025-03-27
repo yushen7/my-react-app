@@ -32,7 +32,7 @@ const getProductLayout = (productList, { largeFontSize, normalFontSize }) => {
           (largeFontSize.replace('px', '') * item.amount.toString().length) /
           1.6
         }px`,
-        height: '38px',
+        height: '15%',
         left: '-3%',
         position: 'absolute',
         bottom: '10%',
@@ -64,47 +64,22 @@ const getProductLayout = (productList, { largeFontSize, normalFontSize }) => {
             item.giftPacks.bonusAmount.toString().length) /
           1.8
         }px`,
-        height: '38px',
+        height: '15%',
         left: '-2%',
         position: 'absolute',
         bottom: '10%',
       }
-
-      // coupons.forEach((coupon, couponIndex) => {
-      //   const suffixKey = `${index}${couponIndex}`
-      //   // 优惠券
-      //   // 满减券：`还送满` `xx-xx` `优惠券`
-      //   // `还送满`
-      //   acc[`materialProductCoupon1${suffixKey}`] = {
-      //     type: 'text',
-      //     text: couponIndex === 0 ? `还送满` : '送满',
-      //     fontSize: MiniFontSize,
-      //     lineHeight: MiniFontSize,
-      //   }
-
-      //   // `xx-xx`
-      //   acc[`materialProductCoupon2${suffixKey}`] = {
-      //     type: 'text',
-      //     text: `${coupon.text.replace('满', '').replace('优惠券', '')}`,
-      //     fontSize: SmallFontSize,
-      //     lineHeight: SmallFontSize,
-      //   }
-
-      //   // `优惠券`
-      //   acc[`materialProductCoupon3${suffixKey}`] = {
-      //     type: 'text',
-      //     text: `优惠券`,
-      //     fontSize: MiniFontSize,
-      //     lineHeight: MiniFontSize,
-      //   }
-      // })
 
       return acc
     }, {}),
   })
 }
 
-export const renderProductList = (processedStyle, productList) => {
+export const renderProductList = ({
+  processedStyle,
+  channelId,
+  productList,
+}) => {
   const { sizeInfo, ...rest } = processedStyle
   const productLayout = { ...rest, ...getProductLayout(productList, sizeInfo) }
   return (
@@ -116,19 +91,16 @@ export const renderProductList = (processedStyle, productList) => {
             className="material-product"
             style={productLayout.productContainer}
           >
-            <div
-              className="product-title"
-              style={productLayout.productTitle}
-            >
+            <div className="product-title" style={productLayout.productTitle}>
               <div
-                data-id={`materialProductBonusText1${index}`}
+                data-id={channelId}
                 style={productLayout[`materialProductBonusText1${index}`]}
               >
                 充
               </div>
               <div style={{ marginLeft: '2%', position: 'relative' }}>
                 <img
-                  data-id={`materialProductBonusText2Decoration${index}`}
+                  data-id={channelId}
                   style={
                     productLayout[`materialProductBonusText2Decoration${index}`]
                   }
@@ -138,7 +110,7 @@ export const renderProductList = (processedStyle, productList) => {
                   }
                 />
                 <div
-                  data-id={`materialProductBonusText2${index}`}
+                  data-id={channelId}
                   style={productLayout[`materialProductBonusText2${index}`]}
                 >
                   {item.amount}
@@ -146,14 +118,14 @@ export const renderProductList = (processedStyle, productList) => {
               </div>
 
               <div
-                data-id={`materialProductBonusText3${index}`}
+                data-id={channelId}
                 style={productLayout[`materialProductBonusText3${index}`]}
               >
                 送
               </div>
               <div style={{ marginLeft: '2%', position: 'relative' }}>
                 <img
-                  data-id={`materialProductBonusText4Decoration${index}`}
+                  data-id={channelId}
                   style={
                     productLayout[`materialProductBonusText4Decoration${index}`]
                   }
@@ -163,14 +135,18 @@ export const renderProductList = (processedStyle, productList) => {
                   }
                 />
                 <div
-                  data-id={`materialProductBonusText4${index}`}
+                  data-id={channelId}
                   style={productLayout[`materialProductBonusText4${index}`]}
                 >
                   {item.giftPacks.bonusAmount}
                 </div>
               </div>
             </div>
-            {renderCouponLayout(item.giftPacks.coupons, processedStyle)}
+            {renderCouponLayout({
+              coupons: item.giftPacks.coupons,
+              processedStyle,
+              channelId,
+            })}
           </div>
         )
       })}

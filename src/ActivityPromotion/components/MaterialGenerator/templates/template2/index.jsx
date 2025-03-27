@@ -1,4 +1,4 @@
-import { MaterialChannels } from '../../constant'
+import { MaterialChannel } from '../../../../constant'
 import { processCommonStyle } from '../../utils'
 import { renderBottomLayout } from './layouts/bottomLayout'
 import { AllConfigs } from './layouts/layout'
@@ -9,7 +9,7 @@ const processedStyle = processCommonStyle(AllConfigs, 21260 / 2126)
 
 function renderChannel(channel) {
   switch (channel) {
-    case MaterialChannels.ylb:
+    case MaterialChannel.ylb:
       return (
         <>
           <img
@@ -24,7 +24,7 @@ function renderChannel(channel) {
           {renderBottomLayout()}
         </>
       )
-    case MaterialChannels.windowPromotion:
+    case MaterialChannel.windowPromotion:
       return (
         <>
           <img
@@ -38,7 +38,7 @@ function renderChannel(channel) {
           {renderProductList()}
         </>
       )
-    case MaterialChannels.banner:
+    case MaterialChannel.banner:
       return (
         <>
           <img
@@ -51,7 +51,7 @@ function renderChannel(channel) {
           {renderTopLayout()}
         </>
       )
-    case MaterialChannels.cashierCard:
+    case MaterialChannel.cashierCard:
       return (
         <>
           <img
@@ -74,11 +74,11 @@ function renderChannel(channel) {
 export default function TemplateTwo() {
   return (
     <>
-      {renderChannel(MaterialChannels.ylb)}
+      {renderChannel(MaterialChannel.ylb)}
 
-      {/* {renderChannel(MaterialChannels.windowPromotion)} */}
-      {/* {renderChannel(MaterialChannels.banner)} */}
-      {/* {renderChannel(MaterialChannels.cashierCard)} */}
+      {/* {renderChannel(MaterialChannel.windowPromotion)} */}
+      {/* {renderChannel(MaterialChannel.banner)} */}
+      {/* {renderChannel(MaterialChannel.cashierCard)} */}
     </>
   )
 }

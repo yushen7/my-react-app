@@ -1,20 +1,25 @@
+import request from '../../../../../../common/helper/request'
+
 const prefix = '/v4/third-plugin/prepaid-expert'
 
-export const uploadFileToQiniu = (yz, data) =>
-  yz.request({
+const dataRequest = (...params) => request(...params).then(res => res.data)
+
+export const uploadFileToQiniu = data =>
+  dataRequest({
     url: 'https://upload.qiniup.com',
     method: 'POST',
     data,
     timeout: 40000,
-    contentType: 'multipart/form-data; charset=UTF-8',
+    header: {
+      'Content-Type': 'multipart/form-data',
+    },
   })
 
 /** 获取图片上传token
- * @param {{request: Function}} yz - yz
  * @returns {Promise<{uptoken: string}>} - Promise对象
  */
-export const fetchShopPubImgToken = yz => {
-  return yz.request({
+export const fetchShopPubImgToken = () => {
+  return dataRequest({
     url: `${prefix}/shopPubImgUploadToken.json`,
     method: 'POST',
     useBizRequest: true,
@@ -22,11 +27,10 @@ export const fetchShopPubImgToken = yz => {
 }
 
 /** 获取二维码
- * @param {{request: Function}} yz - yz
  * @returns {Promise<{qrCode: string}>} - Promise对象
  */
-export const getPrepaidPromotionQrCode = yz => {
-  return yz.request({
+export const getPrepaidPromotionQrCode = () => {
+  return dataRequest({
     url: `${prefix}/getPrepaidPromotionQrCode.json`,
     method: 'GET',
     useBizRequest: true,
@@ -38,23 +42,56 @@ export const getPrepaidPromotionQrCode = yz => {
 
 /**
  * 获取海报
- * @param {{request: Function}} yz - yz
  * @param {{elements: string, width: number, height: number, selector: string }} params - 参数
  * @returns {Promise<{poster: string}>} - Promise对象
  */
-export const getPoster = (yz, { elements, width, height, selector }) => {
-  return yz
-    .request({
-      url: `${prefix}/getPoster.json`,
-      method: 'POST',
-      useBizRequest: true,
-      data: {
-        elements,
-        width,
-        height,
-      },
-    })
-    .then(res => {
-      return res.data.data
-    })
+export const getPoster = ({ elements, width, height, selector }) => {
+  return dataRequest({
+    url: `${prefix}/getPoster.json`,
+    method: 'POST',
+    useBizRequest: true,
+    data: {
+      elements,
+      width,
+      height,
+    },
+    header: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  })
+}
+
+/**
+ * 上传网络图片
+ * @param {{request: Function}} yz - yz
+ * @param {{channel: string, ...rest}} params - 参数
+ * @returns {Promise<{attachment_url: string}>} - Promise对象
+ */
+// export const uploadNetworkImage = ({ channel = 'youzan_www', ...rest }) => {
+//   return request({
+//     url: `${prefix}/uploadNetworkImage.json`,
+//     method: 'POST',
+//     withCredentials: true,
+//     noXRequestedWithHeader: true,
+//     data: {
+//       channel,
+//       ...rest,
+//     },
+//     useBizRequest: true,
+//   }).then(res => res.data)
+// }
+
+export const queryCategoryByCategoryTypeAndMediaType = () => {
+  return dataRequest({
+    url: `${prefix}/queryCategoryByCategoryTypeAndMediaType.json`,
+    method: 'GET',
+  })
+}
+
+export const getPreviewQrcode = (data) => {
+  return dataRequest({
+    url: `${prefix}/getPreviewQrcode.json`,
+    method: 'GET',
+    data,
+  })
 }

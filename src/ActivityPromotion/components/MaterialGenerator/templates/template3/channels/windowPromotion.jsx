@@ -1,5 +1,5 @@
 import { WindowPromotionRect } from '../../../channels'
-import { MaterialChannels } from '../../../constant'
+import { MaterialChannel } from '../../../../../constant'
 
 const TitleFontSize = '130px'
 
@@ -51,7 +51,6 @@ export const TopLayout = {
   materialTimeDateStart: {
     type: 'text',
     fontSize: TitleFontSize,
-    fontWeight: '900',
     lineHeight: TitleFontSize,
     marginTop: '36px',
     content: '2025.11.11',
@@ -68,7 +67,6 @@ export const TopLayout = {
   materialTimeDateEnd: {
     type: 'text',
     fontSize: TitleFontSize,
-    fontWeight: '900',
     lineHeight: TitleFontSize,
     marginTop: '36px',
     content: '11.21',
@@ -89,7 +87,7 @@ export const TopLayout = {
 }
 
 export default {
-  id: MaterialChannels.windowPromotion,
+  id: MaterialChannel.windowPromotion,
   layouts: {
     sizeInfo: {
       largeFontSize: '250px',

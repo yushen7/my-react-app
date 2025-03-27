@@ -1,9 +1,9 @@
-export const renderTopLayout = processedStyle => {
+export const renderTopLayout = ({ processedStyle, channelId, data }) => {
   return (
     <div className="template3-top" style={processedStyle.container1}>
       {/** 标题 */}
-      <div data-id="materialTitle" style={processedStyle.materialTitle}>
-        {processedStyle.materialTitle.content}
+      <div data-id={channelId} style={processedStyle.materialTitle}>
+        {data.title}
       </div>
 
       <div
@@ -12,25 +12,19 @@ export const renderTopLayout = processedStyle => {
         }}
       >
         {/** 时间 */}
-        <div
-          data-id="materialTimeDateStart"
-          style={processedStyle.materialTimeDateStart}
-        >
-          {processedStyle.materialTimeDateStart.content}
+        <div data-id={channelId} style={processedStyle.materialTimeDateStart}>
+          {data.startDate}
         </div>
         <img
-          data-id="materialTimeDateSuffix"
+          data-id={channelId}
           style={processedStyle.materialTimeDateSuffix}
           src={processedStyle.materialTimeDateSuffix.content}
         />
-        <div
-          data-id="materialTimeDateEnd"
-          style={processedStyle.materialTimeDateEnd}
-        >
-          {processedStyle.materialTimeDateEnd.content}
+        <div data-id={channelId} style={processedStyle.materialTimeDateEnd}>
+          {data.endDate}
         </div>
         <img
-          data-id="materialTimeDateDownload"
+          data-id={channelId}
           style={processedStyle.materialTimeDateDownload}
           src={processedStyle.materialTimeDateDownload.content}
         />

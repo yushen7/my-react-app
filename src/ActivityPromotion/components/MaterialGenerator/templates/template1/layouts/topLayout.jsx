@@ -16,6 +16,8 @@ const ContainerLayout = {
     alignItems: 'center',
     position: 'relative',
     width: '95.76%',
+    height: '4370px',
+    marginTop: '365px'
   },
 }
 
@@ -76,14 +78,8 @@ export const TopLayout = {
     type: 'text',
     fontSize: '300px',
     lineHeight: '300px',
+    marginTop: '400px',
     content: 'ACTIVITY TIME >>>',
-  },
-  // 年份
-  materialTimeYear: {
-    type: 'text',
-    fontWeight: '900px',
-    lineHeight: '300px',
-    fontSize: '300px',
   },
   //具体时间 "2025.11.11 - 11.21"
   materialTimeDate: {
@@ -91,22 +87,23 @@ export const TopLayout = {
     fontSize: '700px',
     fontWeight: '900px',
     lineHeight: '700px',
+    marginTop: '300px',
     content: '2025.11.11 - 11.21',
   },
   materialQrCode: {
     type: 'image',
-    width: '1500px',
+    width: '3000px',
     position: 'absolute',
-    top: '170px',
-    left: '0',
+    left: 'calc(50% - 1500px)',
+    top: 'calc(50% - 1300px)',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/Fo4F1M1ez5njdBxUxEzQg8EBR5Oy.png',
   },
   materialQrCodeDecoration: {
     type: 'image',
-    width: '1500px',
+    width: '100%',
     position: 'absolute',
-    top: '170px',
+    top: '0',
     left: '0',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/FrT3I_IJkfiiioxXNFZSOb0xMRuE.png',
@@ -117,44 +114,44 @@ const topLayout = processCommonStyle(TopLayout)
 
 export const renderTopLayout = () => {
   return (
-    <div className="template1-top">
+    <div className="template2-top" style={ContainerLayout.container1}>
       {/** 上方装饰条 */}
       <img
         data-id="materialDecorationBar"
-        style={TopLayout.materialDecorationBar}
-        src={TopLayout.materialDecorationBar.content}
+        style={topLayout.materialDecorationBar}
+        src={topLayout.materialDecorationBar.content}
       />
       <div style={ContainerLayout.logoContainer}>
         <img
           data-id="materialLogoLeft"
-          style={TopLayout.materialLogoLeft}
-          src={TopLayout.materialLogoLeft.content}
+          style={topLayout.materialLogoLeft}
+          src={topLayout.materialLogoLeft.content}
         />
         <img
           data-id="materialLongDivide"
-          style={TopLayout.materialLongDivide}
-          src={TopLayout.materialLongDivide.content}
+          style={topLayout.materialLongDivide}
+          src={topLayout.materialLongDivide.content}
         />
 
         {/** 右侧logo文字 */}
-        <div data-id="materialLogoText" style={TopLayout.materialLogoText}>
-          {TopLayout.materialLogoText.content}
+        <div data-id="materialLogoText" style={topLayout.materialLogoText}>
+          {topLayout.materialLogoText.content}
         </div>
       </div>
 
       {/** 标题 */}
-      <div data-id="materialTitle" style={TopLayout.materialTitle}>
-        {TopLayout.materialTitle.content}
+      <div data-id="materialTitle" style={topLayout.materialTitle}>
+        {topLayout.materialTitle.content}
       </div>
 
       {/** 时间标签 */}
-      <div data-id="materialTimeLabel" style={TopLayout.materialTimeLabel}>
-        {TopLayout.materialTimeLabel.content}
+      <div data-id="materialTimeLabel" style={topLayout.materialTimeLabel}>
+        {topLayout.materialTimeLabel.content}
       </div>
 
       {/** 时间 */}
-      <div data-id="materialTimeDate" style={TopLayout.materialTimeDate}>
-        {TopLayout.materialTimeDate.content}
+      <div data-id="materialTimeDate" style={topLayout.materialTimeDate}>
+        {topLayout.materialTimeDate.content}
       </div>
 
       {/** 扫码 */}
@@ -162,15 +159,15 @@ export const renderTopLayout = () => {
         {/** 扫码装饰 */}
         <img
           data-id="materialQrCodeDecoration"
-          style={TopLayout.materialQrCodeDecoration}
-          src={TopLayout.materialQrCodeDecoration.content}
+          style={topLayout.materialQrCodeDecoration}
+          src={topLayout.materialQrCodeDecoration.content}
           alt=""
         />
         {/** 扫码图片 */}
         <img
           data-id="materialQrCode"
-          style={TopLayout.materialQrCode}
-          src={TopLayout.materialQrCode.content}
+          style={topLayout.materialQrCode}
+          src={topLayout.materialQrCode.content}
           alt=""
         />
       </div>

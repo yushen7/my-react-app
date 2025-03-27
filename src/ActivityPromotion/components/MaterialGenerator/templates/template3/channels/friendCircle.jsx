@@ -1,44 +1,48 @@
-import { BaseRect } from '../../../channels/base'
+import { FriendCircleRect } from '../../../channels'
 import { MaterialChannel } from '../../../../../constant'
+
+const TitleFontSize = '220px'
 
 const CouponLayout = {
   productSubtitle: {
-    marginLeft: 636,
+    marginLeft: '10px',
     marginTop: '1.5%',
-    gap: '100px',
+    gap: '10px',
   },
   materialProductCoupon: {
-    gap: '100px',
+    gap: '10px',
   },
   materialProductSlash: {
     type: 'text',
     content: '/',
     color: '#FBEF02',
-    fontSize: '200px',
-    lineHeight: '200px',
+    fontSize: 48,
+    lineHeight: '48px',
   },
 }
 
 const ProductLayout = {
   productsContainer: {
-    marginTop: 2334,
-    marginLeft: 1034,
+    marginTop: 200,
+    marginLeft: 288,
   },
   productContainer: {
-    marginTop: 580,
+    marginTop: 84,
     position: 'relative',
   },
-  productTitle: {},
+  productTitle: {
+    // marginTop: '68px',
+  },
 }
 
 export const TopLayout = {
   // 物料标题：甜蜜开业季储值送现金
   materialTitle: {
     type: 'text',
-    marginTop: '1125px',
-    fontSize: '900px',
+    marginTop: '124px',
+    fontSize: TitleFontSize,
     fontWeight: '900',
-    lineHeight: '900px',
+    lineHeight: TitleFontSize,
     textAlign: 'center',
     content: '甜蜜开业季储值送现金',
   },
@@ -46,9 +50,9 @@ export const TopLayout = {
   //具体开始时间 "2025.11.11"
   materialTimeDateStart: {
     type: 'text',
-    fontSize: '900px',
-    lineHeight: '700px',
-    marginTop: '386px',
+    fontSize: TitleFontSize,
+    lineHeight: TitleFontSize,
+    marginTop: '69px',
     content: '2025.11.11',
     display: 'inline-block',
   },
@@ -56,13 +60,15 @@ export const TopLayout = {
     type: 'image',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/24/Fp05i5-wAN00Lq0H4NvWybAjtq4_.png',
+    width: 214,
+    height: 82,
   },
   //具体时间 "11.21"
   materialTimeDateEnd: {
     type: 'text',
-    fontSize: '900px',
-    lineHeight: '700px',
-    marginTop: '386px',
+    fontSize: TitleFontSize,
+    lineHeight: TitleFontSize,
+    marginTop: '69px',
     content: '11.21',
     display: 'inline-block',
   },
@@ -70,12 +76,12 @@ export const TopLayout = {
     type: 'image',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/24/Fh2nX8kZNNbCWEyTCed70fPPTZRq.png',
-    width: '800px',
-    height: '800px',
+    width: 180,
+    height: 180,
   },
   // 最外层的 container
   container1: {
-    margin: '200px 200px 0 200px',
+    textAlign: 'center',
     width: '95.76%',
   },
 }
@@ -85,62 +91,61 @@ export const BottomLayout = {
     type: 'text',
     content: '扫码参与',
     color: '#fff',
-    fontSize: '400px',
-    lineHeight: '400px',
+    fontSize: 80,
+    lineHeight: '80px',
     marginTop: '2.2%',
   },
   materialScanText2: {
     type: 'text',
     content: '使用小程序即可充值',
     color: '#fff',
-    fontSize: '400px',
-    lineHeight: '400px',
+    fontSize: 96,
+    lineHeight: '96px',
     marginTop: '1.5%',
   },
   materialScanText3: {
     type: 'text',
     content: '本次活动最终解释权归活动方所有',
     color: '#fff',
-    fontSize: '200px',
-    lineHeight: '200px',
+    fontSize: 48,
+    lineHeight: '48px',
     marginTop: '1.5%',
   },
   materialQrcode: {
     type: 'image',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/Fo4F1M1ez5njdBxUxEzQg8EBR5Oy.png',
-    width: '3000px',
-    height: '3000px',
-    marginTop: '7%',
-    marginLeft: '3%',
+    width: 700,
+    height: 700,
+    marginLeft: 156,
   },
   bottomContainer: {
     position: 'absolute',
     bottom: '0%',
-    height: '20%',
+    height: '21%',
     width: '100%',
     display: 'flex',
     textAlign: 'start',
   },
   scanTextContainer: {
-    marginLeft: '400px',
-    marginTop: '2200px',
+    marginLeft: 80,
+    marginTop: 380,
     position: 'relative',
   },
 }
 
 export default {
-  id: MaterialChannel.ylb,
+  id: MaterialChannel.friendCircle,
   layouts: {
     sizeInfo: {
-      largeFontSize: '1706px',
-      normalFontSize: '680px',
-      smallFontSize: '386px',
-      miniFontSize: '257px',
+      largeFontSize: '310px',
+      normalFontSize: '124px',
+      smallFontSize: '68px',
+      miniFontSize: '48px',
     },
     materialGenerator: {
-      width: BaseRect.width,
-      height: BaseRect.height,
+      width: FriendCircleRect.width,
+      height: FriendCircleRect.height,
       position: 'absolute',
     },
     materialBackground: {
@@ -150,15 +155,15 @@ export default {
       position: 'absolute',
       zIndex: 0,
       previewContent:
-        'https://img01.yzcdn.cn/upload_files/2025/03/27/FnBZs9YHNqQOV197L1gtJ15uUz6O.png',
+        'https://img01.yzcdn.cn/upload_files/2025/03/26/Fhg7M_GgGPH01i-Li-79LFaOJUAG.png',
       content:
-        'https://img01.yzcdn.cn/upload_files/2025/03/24/Fs_rrTi_K-wV7TgRxzmRKmdp0aSn.png',
+        'https://img01.yzcdn.cn/upload_files/2025/03/26/Fhg7M_GgGPH01i-Li-79LFaOJUAG.png',
       left: 0,
       top: 0,
     },
     ...ProductLayout,
     ...TopLayout,
-    ...BottomLayout,
     ...CouponLayout,
+    ...BottomLayout
   },
 }

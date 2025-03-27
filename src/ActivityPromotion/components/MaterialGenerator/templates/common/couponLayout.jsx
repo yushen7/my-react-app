@@ -37,7 +37,7 @@ const getCouponLayout = (coupons, sizeInfo) => {
   })
 }
 
-export function renderCouponLayout(coupons, processedStyle) {
+export function renderCouponLayout({ coupons, processedStyle, channelId }) {
   const { sizeInfo, ...rest } = processedStyle
   const couponLayout = { ...rest, ...getCouponLayout(coupons, sizeInfo) }
   if (!coupons.length) {
@@ -55,7 +55,7 @@ export function renderCouponLayout(coupons, processedStyle) {
           >
             {couponIndex !== 0 && (
               <div
-                data-id="materialProductSlash"
+                data-id={channelId}
                 style={couponLayout.materialProductSlash}
               >
                 {couponLayout.materialProductSlash.content}
@@ -63,7 +63,7 @@ export function renderCouponLayout(coupons, processedStyle) {
             )}
             {coupon.prefix && (
               <div
-                data-id={`materialProductCoupon1${suffixKey}`}
+                data-id={channelId}
                 style={couponLayout[`materialProductCoupon1${suffixKey}`]}
               >
                 {coupon.prefix}
@@ -71,13 +71,13 @@ export function renderCouponLayout(coupons, processedStyle) {
             )}
 
             <div
-              data-id={`materialProductCoupon2${suffixKey}`}
+              data-id={channelId}
               style={couponLayout[`materialProductCoupon2${suffixKey}`]}
             >
               {coupon.text}
             </div>
             <div
-              data-id={`materialProductCoupon3${suffixKey}`}
+              data-id={channelId}
               style={couponLayout[`materialProductCoupon3${suffixKey}`]}
             >
               {coupon.suffix}

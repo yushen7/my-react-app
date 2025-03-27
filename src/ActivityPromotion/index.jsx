@@ -1,8 +1,71 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import './style.scss'
-import { AllMaterials } from './constant.jsx'
+import { openEditDialog } from './EditDialog.jsx'
+import {
+  AllMaterials,
+  ChannelTemplate,
+  MaterialChannel,
+  MaterialChannelNum,
+} from './constant.jsx'
 import { GenerationStatus } from './constant.jsx'
-import MaterialGenerator from './components/MaterialGenerator/index.jsx'
+import { processPlanData } from './utils.js'
+import MaterialGeneratorContainer from './components/MaterialGeneratorContainer/index.jsx'
+
+const formatMaterialImageInfo2Submit = materialImageInfo => {
+  const result = {}
+  const popup = materialImageInfo[MaterialChannel.windowPromotion]
+  const banner = materialImageInfo[MaterialChannel.banner]
+  if (popup) {
+    result.popup = {
+      imgUrl: popup.imgUrl,
+    }
+  }
+  if (banner) {
+    result.banner = {
+      imgUrl: banner.imgUrl,
+      prepaidActivityId: banner.prepaidActivityId,
+    }
+  }
+  result.materialList = Object.keys(materialImageInfo)
+    .filter(
+      id =>
+        id !== MaterialChannel.windowPromotion && id !== MaterialChannel.banner
+    )
+    .map(id => ({
+      type: MaterialChannelNum[id],
+      imgUrl: materialImageInfo[id].imgUrl,
+    }))
+  return result
+}
+
+const handleSelected4Submit = (activityPromotion, selectedValues) => {
+  const result = {}
+
+  if (selectedValues.includes(MaterialChannel.windowPromotion)) {
+    result.popup = {
+      imgUrl: activityPromotion.popup.imgUrl,
+    }
+  }
+  if (selectedValues.includes(MaterialChannel.banner)) {
+    result.banner = {
+      imgUrl: activityPromotion.banner.imgUrl,
+    }
+  }
+
+  result.materialList = selectedValues
+    .filter(
+      id =>
+        id !== MaterialChannel.windowPromotion && id !== MaterialChannel.banner
+    )
+    .map(id => ({
+      type: MaterialChannelNum[id],
+      imgUrl: activityPromotion.materialList.find(
+        material => material.type === MaterialChannelNum[id]
+      ).imgUrl,
+    }))
+
+  return result
+}
 
 /**
  * @typedef {Object} MaterialItem
@@ -17,46 +80,48 @@ const ActivityPromotion = ({
   store,
   selectedMaterials = [],
   isOpenRecommend,
+  planData,
+  setActivityPlanData,
+  setGenerationStatus,
+  isView,
 }) => {
-  const [showTip, setShowTip] = useState(true)
-  const [showChooseDialog, setShowChooseDialog] = useState(false) // 选择物料弹窗
-  const [materialImageList, setMaterialImageList] = useState([])
+  const processedPlanData = processPlanData(planData)
+  const [qrCode, setQrCode] = useState('');
 
-  const handleEdit = item => {
-    console.log('编辑物料', item)
-  }
-
-  const handleGenerate = values => {
-    setMaterialImageList(values)
-  }
-
-  const renderMaterialItems = items => {
-    return (
-      <div className="material-items-container">
-        {items.map((item, index) => (
-          <div key={item.id} className="material-item">
-            <div
-              className="material-image"
-              style={{
-                backgroundImage: `url(${materialImageList[index]})`,
-                backgroundSize: 'contain',
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
-              }}
-            ></div>
-            <div className="material-info">
-              <div className="material-title">{item.title}</div>
-              <div className="material-edit">
-                {/* <Button type="text" onClick={() => handleEdit(item)}>
-                  {item.editText}
-                </Button> */}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+  const handleGenerate = materialImageInfo => {
+    const allGenerated =
+      Object.values(materialImageInfo).length === selectedMaterials.length
+    setGenerationStatus(
+      allGenerated ? GenerationStatus.Generated : GenerationStatus.Generating
     )
+    setActivityPlanData({
+      activityPromotion: {
+        ...planData.activityPromotion,
+        ...formatMaterialImageInfo2Submit(materialImageInfo),
+      },
+    })
   }
+
+  useEffect(() => {
+    // @TODO 二维码
+    // getPrepaidPromotionQrCode().then(res => {
+    //   if (res.shortUrl) {
+    //     qrCode
+    //       .toDataURL(res.shortUrl, {
+    //         errorCorrectionLevel: 'H',
+    //         margin: 1,
+    //         width: 300,
+    //         color: {
+    //           dark: '#000000',
+    //           light: '#ffffff',
+    //         },
+    //       })
+    //       .then(dataUrl => {
+    //         console.log(dataUrl, 'dataUrl')
+    //       })
+    //   }
+    // })
+  }, [])
 
   return (
     <div className="activity-promotion">
@@ -68,28 +133,27 @@ const ActivityPromotion = ({
         className="activity-promotion__section"
         style={{
           marginTop: 12,
+          minHeight: 500,
         }}
       >
-        {generationStatus === GenerationStatus.Generating ? (
-          <div>生成中...</div>
-        ) : (
-          <>
-            <div className="activity-promotion__section-title">2. 活动物料</div>
-            {renderMaterialItems(
-              AllMaterials.filter(item => selectedMaterials.includes(item.id))
-            )}
-          </>
-        )}
-
-        <MaterialGenerator onGenerate={handleGenerate} store={store} />
+        <div className="activity-promotion__section-title">2. 活动物料</div>
+        <MaterialGeneratorContainer
+          store={store}
+          data={processedPlanData}
+          generationStatus={generationStatus}
+          selectedMaterials={selectedMaterials}
+          template={ChannelTemplate.template3}
+          onGenerate={handleGenerate}
+          isView={isView}
+        />
       </div>
     </div>
   )
 }
 
-export const useActivityPromotion = () => {
+export const useActivityPromotion = ({ setActivityPlanData, planData }) => {
   const [generationStatus, setGenerationStatus] = useState(
-    GenerationStatus.Initial
+    GenerationStatus.Generating
   )
 
   const [selectedValues, setSelectedValues] = useState(
@@ -105,11 +169,35 @@ export const useActivityPromotion = () => {
     }, 2000)
   }
 
+  const handleChoose = () => {
+    openEditDialog({
+      selectedValues,
+      onConfirm: values => {
+        setSelectedValues(values.materials)
+        setIsOpenRecommend(values.isOpenRecommend)
+        setActivityPlanData({
+          activityPromotion: {
+            ...planData.activityPromotion,
+            recommend: {
+              openRecommendation: values.isOpenRecommend,
+            },
+            ...handleSelected4Submit(
+              planData.activityPromotion,
+              values.materials
+            ),
+          },
+        })
+      },
+      isOpenRecommend,
+    })
+  }
+
   return {
     ActivityPromotion,
     generationStatus,
     setGenerationStatus,
     handleRefresh,
+    handleChoose,
     selectedMaterials: selectedValues,
     isOpenRecommend,
   }

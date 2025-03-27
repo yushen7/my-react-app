@@ -1,5 +1,5 @@
 import { CashierCardRect } from '../../../channels'
-import { MaterialChannels } from '../../../constant'
+import { MaterialChannel } from '../../../../../constant'
 
 const TitleFontSize = '220px'
 
@@ -51,7 +51,6 @@ export const TopLayout = {
   materialTimeDateStart: {
     type: 'text',
     fontSize: TitleFontSize,
-    fontWeight: '900',
     lineHeight: TitleFontSize,
     marginTop: '69px',
     content: '2025.11.11',
@@ -68,7 +67,6 @@ export const TopLayout = {
   materialTimeDateEnd: {
     type: 'text',
     fontSize: TitleFontSize,
-    fontWeight: '900',
     lineHeight: TitleFontSize,
     marginTop: '69px',
     content: '11.21',
@@ -137,7 +135,7 @@ export const BottomLayout = {
 }
 
 export default {
-  id: MaterialChannels.cashierCard,
+  id: MaterialChannel.cashierCard,
   layouts: {
     sizeInfo: {
       largeFontSize: '310px',

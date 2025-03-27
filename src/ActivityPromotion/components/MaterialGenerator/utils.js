@@ -1,26 +1,9 @@
-import { BaseRect } from './channels/base'
-
-const BaseOffset = {
-  left: 300,
-}
-
-const TopElements = {
-  decorationBar: {
-    widthPercent: 0.695132,
-  },
-  whiteBar: {
-    widthPercent: 0.938723,
-  },
-}
-
 // 这里我们已经在数据定义时放大了尺寸，所以在处理时需要反向缩小回来以便正确显示
 export const processScale = (data = {}, displayMultiple = 1) => {
   const afterScale = {
     ...data,
     materialGenerator: {
       ...data.materialGenerator,
-      // width: withPx(data.materialGenerator.width, ratio.widthRatio),
-      // height: withPx(data.materialGenerator.height, ratio.heightRatio),
       transform: `scale(${displayMultiple})`,
       'transform-origin': 'top left',
     },
@@ -37,14 +20,6 @@ export const processCommonStyle = (data = {}) => {
         fontFamily: 'HarmonyOS Sans SC',
         position: 'relative',
         ...data[key],
-        // width: withPx(data[key].width, widthRatio),
-        // height: withPx(data[key].height, heightRatio),
-        // marginTop: withPx(data[key].marginTop, heightRatio),
-        // marginLeft: withPx(data[key].marginLeft, widthRatio),
-        // top: withPx(data[key].top, heightRatio),
-        // left: withPx(data[key].left, widthRatio),
-        // fontSize: withPx(data[key].fontSize, heightRatio),
-        // lineHeight: withPx(data[key].lineHeight, heightRatio),
       }
     })
     .reduce((acc, curr) => {
@@ -65,23 +40,22 @@ function getBoundingClientRectWithRatio(rect, ratio) {
 function withPx(value, ratio = 1) {
   const omitPx = String(value).replace('px', '')
 
-  return Number(omitPx) * ratio.toFixed(4) + 'px'
+  return (Number(omitPx) * ratio).toFixed(2) + 'px'
 }
 
 /**
  * 计算所有带ID的元素相对于material-generator的偏移量
  * 并返回可用于Fabric.js的格式
  */
-export function calculateElementOffsets(windowProxy, { ratio, keepSize }) {
-  console.log(windowProxy)
+export function calculateElementOffsets(windowProxy, { ratio, className }) {
   // 获取父容器元素
-  const container = document.getElementById('materialGenerator')
+  const container = document.querySelector(`.${className}`)
   if (!container) {
-    console.error('找不到ID为materialGenerator的元素')
+    console.error(`找不到类名为${className}的元素`)
     return []
   }
 
-  const rectRatio = keepSize ? 1 : ratio
+  const rectRatio = 1
 
   // 获取父容器的位置和尺寸信息
   const containerRect = getBoundingClientRectWithRatio(
@@ -90,8 +64,7 @@ export function calculateElementOffsets(windowProxy, { ratio, keepSize }) {
   )
 
   // 获取所有带ID的元素（ID以material-开头）
-  const elements = document.querySelectorAll('[data-id^="material"]')
-
+  const elements = document.querySelectorAll(`[data-id^="${className}"]`)
   // 存储结果的数组
   const fabricElements = []
 
@@ -99,7 +72,7 @@ export function calculateElementOffsets(windowProxy, { ratio, keepSize }) {
   elements.forEach(element => {
     const dataId = element.getAttribute('data-id')
     // 跳过父容器自身
-    if (element.id === 'materialGenerator') return
+    if (element.id === className) return
 
     // 获取元素的位置
     const elementRect = getBoundingClientRectWithRatio(
@@ -111,17 +84,18 @@ export function calculateElementOffsets(windowProxy, { ratio, keepSize }) {
     const offsetTop = elementRect.top - containerRect.top
     const offsetLeft = elementRect.left - containerRect.left
 
-    // 获取元素的计算样式
-    const computedStyle = windowProxy.getComputedStyle(element)
+    let computedStyle
+
+    computedStyle = windowProxy.getComputedStyle(element)
 
     // 根据元素类型创建不同的对象
     let fabricElement = {}
 
     const commonProps = {
-      width: elementRect.width.toFixed(4),
-      height: elementRect.height.toFixed(4),
-      top: offsetTop.toFixed(4),
-      left: offsetLeft.toFixed(4),
+      width: elementRect.width.toFixed(2),
+      height: elementRect.height.toFixed(2),
+      top: offsetTop.toFixed(2),
+      left: offsetLeft.toFixed(2),
     }
 
     if (element.tagName === 'IMG') {
@@ -137,11 +111,14 @@ export function calculateElementOffsets(windowProxy, { ratio, keepSize }) {
         fabricElement.isBaseMapImg = true
       }
     } else {
-      const fontRatio = keepSize ? 1 / ratio : 1
+      // ratio 小于 1，说明是缩小的，需要乘以 ratio
+      const fontRatio = ratio
       // 文本类型
       const text = element.textContent || ''
       fabricElement = {
         ...commonProps,
+        // 为什么要加上10....
+        width: Number(commonProps.width) + 10,
         type: 'text',
         text: text,
         fontSize: withPx(computedStyle.fontSize, fontRatio),
@@ -149,12 +126,8 @@ export function calculateElementOffsets(windowProxy, { ratio, keepSize }) {
         fontWeight: computedStyle.fontWeight,
         color: computedStyle.color,
         textAlign: computedStyle.textAlign || 'left',
-        fontFamily: computedStyle.fontFamily.replaceAll('"', '') || 'Arial',
       }
     }
-
-    // 添加元素ID作为引用
-    fabricElement.id = dataId
 
     // 将元素添加到结果数组
     fabricElements.push(fabricElement)
