@@ -6,9 +6,16 @@ import channels from './channels'
 import { renderBottomLayout } from './layouts/bottomLayout'
 import { renderProductList } from './layouts/productLayout'
 import { renderTopLayout } from './layouts/topLayout'
-import { Notify } from 'zent'
-import store from '../../../../../../../../common/store'
+// import store from '../../../../../../../../common/store'
 import qrCode from 'qrcode';
+
+const store = {
+  getStore() {
+    return {
+      windowProxy: window
+    }
+  }
+}
 
 function fabricElements2HTML(fabricElements) {
   let htmlString =
@@ -144,9 +151,6 @@ export default function TemplateThree({
           id: channel.id,
           img: res.img,
         })
-      })
-      .catch(err => {
-        Notify.error(err)
       })
   }
 

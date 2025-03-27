@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import './style.scss'
-import { openEditDialog } from './EditDialog.jsx'
 import {
   AllMaterials,
   ChannelTemplate,
@@ -169,35 +168,13 @@ export const useActivityPromotion = ({ setActivityPlanData, planData }) => {
     }, 2000)
   }
 
-  const handleChoose = () => {
-    openEditDialog({
-      selectedValues,
-      onConfirm: values => {
-        setSelectedValues(values.materials)
-        setIsOpenRecommend(values.isOpenRecommend)
-        setActivityPlanData({
-          activityPromotion: {
-            ...planData.activityPromotion,
-            recommend: {
-              openRecommendation: values.isOpenRecommend,
-            },
-            ...handleSelected4Submit(
-              planData.activityPromotion,
-              values.materials
-            ),
-          },
-        })
-      },
-      isOpenRecommend,
-    })
-  }
 
   return {
     ActivityPromotion,
     generationStatus,
     setGenerationStatus,
     handleRefresh,
-    handleChoose,
+    // handleChoose,
     selectedMaterials: selectedValues,
     isOpenRecommend,
   }

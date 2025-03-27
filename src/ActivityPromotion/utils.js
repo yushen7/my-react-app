@@ -45,6 +45,7 @@ const formatDateString = (dateString, options = {}) => {
 }
 
 export function processPlanData(planData) {
+  console.log(planData, 'planData')
   return {
     title: planData.activityName,
     subtitle: planData.activityObjective,

@@ -1,4 +1,11 @@
-import { Button, Pop } from 'zent'
+// import { Button, Pop } from 'zent'
+
+const Button = ({ children }) => {
+  return <div>{children}</div>
+}
+const Pop = ({ children, content }) => {
+  return <div>{content}</div>
+}
 
 export const MaterialChannel = {
   /** 易拉宝 poster */

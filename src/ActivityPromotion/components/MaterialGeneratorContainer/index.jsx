@@ -1,4 +1,4 @@
-import { Button, previewImage } from 'zent'
+// import { Button, previewImage } from 'zent'
 import MaterialGenerator from '../MaterialGenerator'
 import { useEffect, useState } from 'react'
 import { AllMaterials, GenerationStatus, MaterialChannel } from '../../constant'
@@ -12,13 +12,13 @@ import {
 } from '../MaterialGenerator/api'
 import qrcode from 'qrcode'
 
-function showImagePreview(imageUrl) {
-  previewImage({
-    images: [imageUrl],
-    showRotateBtn: true,
-    showScaleBtn: true,
-  })
-}
+// function showImagePreview(imageUrl) {
+//   previewImage({
+//     images: [imageUrl],
+//     showRotateBtn: true,
+//     showScaleBtn: true,
+//   })
+// }
 
 const MaterialGeneratorContainer = ({
   store,
@@ -125,9 +125,9 @@ const MaterialGeneratorContainer = ({
                     cursor: 'pointer',
                   }}
                   onClick={() => {
-                    if (imageInfo?.imgUrl) {
-                      showImagePreview(imageInfo.qrCode || imageInfo.imgUrl)
-                    }
+                    // if (imageInfo?.imgUrl) {
+                      // showImagePreview(imageInfo.qrCode || imageInfo.imgUrl)
+                    // }
                   }}
                 >
                   <MaterialGenerator
@@ -141,11 +141,11 @@ const MaterialGeneratorContainer = ({
                 <div className="material-info">
                   <div className="material-title">{item.title}</div>
                   <div className="material-edit">
-                    {!isView && (
+                    {/* {!isView && (
                       <Button type="text" onClick={() => handleEdit(item)}>
                         {item.editText}
                       </Button>
-                    )}
+                    )} */}
                   </div>
                 </div>
               </div>

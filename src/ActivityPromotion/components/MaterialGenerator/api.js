@@ -1,4 +1,6 @@
-import request from '../../../../../../common/helper/request'
+// import request from '../../../../../../common/helper/request'
+
+const request = async () => {}
 
 const prefix = '/v4/third-plugin/prepaid-expert'
 
@@ -88,7 +90,7 @@ export const queryCategoryByCategoryTypeAndMediaType = () => {
   })
 }
 
-export const getPreviewQrcode = (data) => {
+export const getPreviewQrcode = data => {
   return dataRequest({
     url: `${prefix}/getPreviewQrcode.json`,
     method: 'GET',
