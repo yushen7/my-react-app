@@ -29,14 +29,38 @@ export const TopLayout = {
     lineHeight: '900px',
     textAlign: 'center',
   },
-  // 物料副标题 跟上这波车，拿下这福利!
   materialSubtitle: {
-    type: 'text',
     marginTop: '400px',
+    marginLeft: '300px',
+    marginRight: '300px',
+  },
+  materialSubtitlePrefix: {
+    type: 'text',
     fontSize: '400px',
     lineHeight: '400px',
     textAlign: 'center',
     fontWeight: 900,
+    position: 'absolute',
+    left: 0,
+  },
+  // 物料副标题 跟上这波车，拿下这福利!
+  materialSubtitleContent: {
+    type: 'text',
+    fontSize: '400px',
+    lineHeight: '400px',
+    textAlign: 'center',
+    fontWeight: 900,
+  },
+
+  materialSubtitleSuffix: {
+    type: 'text',
+    fontSize: '400px',
+    lineHeight: '400px',
+    textAlign: 'center',
+    fontWeight: 900,
+    position: 'absolute',
+    right: 0,
+    top: 0
   },
 
   materialWhiteDecorationBar: {
@@ -54,6 +78,7 @@ export const TopLayout = {
     fontWeight: '900px',
     lineHeight: '300px',
     marginLeft: '300px',
+    fontWeight: 900,
   },
   // 年份
   materialTimeYear: {
@@ -61,6 +86,7 @@ export const TopLayout = {
     fontWeight: '900px',
     lineHeight: '300px',
     fontSize: '300px',
+    fontWeight: 900,
   },
   //具体时间 "TIME > MM/DD-MM/DD"
   materialTimeDate: {
@@ -117,6 +143,16 @@ export const TopLayout = {
 }
 
 export const BottomLayout = {
+  materialBottomContainer: {
+    zIndex: 2,
+    position: 'absolute',
+    width: '100%',
+    bottom: '800px',
+    height: '2284px',
+    width: '8864px',
+    marginLeft: '291px',
+    textAlign: 'left',
+  },
   // 扫码参与
   materialScan: {
     type: 'text',
@@ -125,7 +161,13 @@ export const BottomLayout = {
     lineHeight: '400px',
     textAlign: 'center',
   },
-  // 使用小程序即可充值
+  qrCodeContainer: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    zIndex: 2,
+  },
+  // 二维码
   materialQrCode: {
     type: 'image',
     width: '80px',
@@ -133,6 +175,10 @@ export const BottomLayout = {
     position: 'absolute',
     top: '660px',
     left: '650px',
+  },
+  materialScanTextContainer: {
+    marginLeft: '200px',
+    marginTop: '400px',
   },
   // 扫码参与
   materialScanText: {
@@ -168,16 +214,21 @@ export const BottomLayout = {
     left: '0',
   },
   // 底部装饰
-  materialBottomDecoration: {
+  scanDecoration: {
     type: 'image',
     width: '47.3%',
-    marginTop: '716px',
+    content:
+      'https://img01.yzcdn.cn/upload_files/2025/03/19/FsemU_caSE_YDxn9xCC6cLhHlt5u.png',
   },
   // 底部装饰条
   materialBottomDecorationBar: {
     type: 'image',
     width: '100%',
-    marginTop: '200px',
+    content:
+      'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
+    position: 'absolute',
+    bottom: '0',
+    left: 0,
   },
   materialQrcode: {
     type: 'image',
@@ -189,6 +240,8 @@ export const BottomLayout = {
   },
   materialQrDecoration: {
     type: 'image',
+    content:
+      'https://img01.yzcdn.cn/upload_files/2025/03/19/FvwjDuPmalUvBAWGa-VpWk-Flysj.png',
   },
   materialBlackBackground: {
     type: 'image',
@@ -196,6 +249,8 @@ export const BottomLayout = {
     bottom: '0',
     left: '0',
     width: '100%',
+    content:
+      'https://img01.yzcdn.cn/upload_files/2025/03/19/FodwYMzYFLgPeQDFPmnxtrfjxQSw.png',
   },
 }
 

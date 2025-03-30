@@ -93,7 +93,7 @@ const getProductLayout = (productList, { largeFontSize, normalFontSize }) => {
 // 4. 如果是第一个档位（大的背景图），且无送礼包的优惠券数据时，marginTop 需要
 const calculateMarginTop = (hasCoupon, isFirst) => {
   if (hasCoupon) {
-    return isFirst ? '9%' : '3%'
+    return isFirst ? '12%' : '5%'
   } else {
     return isFirst ? '15%' : '6%'
   }
@@ -129,7 +129,16 @@ export const renderProductList = ({
               src={productBackgroundStyle.content}
               alt="background"
             />
-            <div className="product-title" style={productLayout.productTitle}>
+            <div
+              className="product-title"
+              style={{
+                ...productLayout.productTitle,
+                marginTop: calculateMarginTop(
+                  item.giftPacks.coupons.length > 0,
+                  index === 0
+                ),
+              }}
+            >
               <div
                 data-id={channelId}
                 style={productLayout[`materialProductBonusText1${index}`]}
