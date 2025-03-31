@@ -68,19 +68,6 @@ const getProductLayout = (productList, { largeFontSize, normalFontSize }) => {
         bottom: '10%',
       }
 
-      // 档位背景
-      acc[`materialProductBackground${index}`] = {
-        type: 'image',
-        width: '8870px',
-        height: index === 0 ? '3678px' : '2932px',
-        left: '0',
-        top: '0',
-        position: 'absolute',
-        content:
-          index === 0
-            ? 'https://img01.yzcdn.cn/upload_files/2025/03/17/Fn-gMp1CzOSbirw2WI4T5aLnR4Td.png'
-            : 'https://img01.yzcdn.cn/upload_files/2025/03/17/FneEvpcghLF8Ny2kQdiiQTRIb__g.png',
-      }
       return acc
     }, {}),
   })
@@ -109,34 +96,51 @@ export const renderProductList = ({
   return (
     <div style={processedStyle.productsContainer}>
       {productList.map((item, index) => {
-        const productBackgroundStyle =
-          productLayout[`materialProductBackground${index}`]
-
+        const { productBackground, productContainer } = productLayout
         return (
           <div
             key={`material-product-${index}`}
             className="material-product"
             style={{
               position: 'relative',
-              width: productBackgroundStyle.width,
-              height: productBackgroundStyle.height,
-              marginTop: index === 0 ? '-360px' : '200px',
+              ...productContainer,
+              width: productBackground.width,
+              height:
+                index === 0
+                  ? productBackground.firstHeight || productBackground.height
+                  : productBackground.height,
+              marginTop:
+                index === 0
+                  ? productContainer.firstMarginTop ||
+                    productContainer.marginTop
+                  : productContainer.marginTop,
             }}
           >
             <img
               data-id={channelId}
-              style={productBackgroundStyle}
-              src={productBackgroundStyle.content}
+              style={{
+                ...productBackground,
+                height:
+                  index === 0
+                    ? productBackground.firstHeight || productBackground.height
+                    : productBackground.height,
+              }}
+              src={
+                index === 0
+                  ? productBackground.firstContent || productBackground.content
+                  : productBackground.content
+              }
               alt="background"
             />
             <div
               className="product-title"
               style={{
                 ...productLayout.productTitle,
-                marginTop: calculateMarginTop(
-                  item.giftPacks.coupons.length > 0,
+                marginTop:
                   index === 0
-                ),
+                    ? productLayout.productTitle.firstMarginTop ||
+                      productLayout.productTitle.marginTop
+                    : productLayout.productTitle.marginTop,
               }}
             >
               <div

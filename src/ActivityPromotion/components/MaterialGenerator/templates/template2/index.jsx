@@ -1,6 +1,7 @@
 import { MaterialChannel } from '../../../../constant'
 import { processScale } from '../../utils'
 import MaterialChannelList from './channels'
+import { renderExtra } from './channels/cashierCard'
 import { renderBottomLayout } from './layouts/bottomLayout'
 import { renderProductList } from './layouts/productLayout'
 import { renderTopLayout } from './layouts/topLayout'
@@ -8,7 +9,7 @@ import { renderTopLayout } from './layouts/topLayout'
 function renderChannel({ channelId, processedStyle, data }) {
   const { rechargeList: productList } = data
 
-  const img = (
+  const baseImg = (
     <img
       data-id={channelId}
       src={processedStyle.materialBackground.previewContent}
@@ -18,38 +19,72 @@ function renderChannel({ channelId, processedStyle, data }) {
     />
   )
 
+  const bottomImg = (
+    <img
+      data-id={channelId}
+      src={processedStyle.materialBottomDecorationBar.content}
+      alt="background"
+      style={processedStyle.materialBottomDecorationBar}
+      className="background"
+    />
+  )
+  const renderTopLayoutWithProps = () => {
+    return renderTopLayout({ processedStyle, channelId, data })
+  }
+
+  const renderProductListWithProps = () => {
+    return renderProductList({ processedStyle, channelId, productList })
+  }
+
+  const renderBottomLayoutWithProps = () => {
+    return renderBottomLayout({ processedStyle, channelId })
+  }
+
   switch (channelId) {
     case MaterialChannel.ylb:
       return (
         <>
-          {img}
-          {renderTopLayout({ processedStyle, channelId })}
-          {renderProductList({ processedStyle, channelId, productList })}
-          {renderBottomLayout({ processedStyle, channelId })}
+          {baseImg}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
         </>
       )
     case MaterialChannel.windowPromotion:
       return (
         <>
-          {img}
-          {renderTopLayout({ processedStyle, channelId })}
-          {renderProductList({ processedStyle, channelId, productList })}
+          {baseImg}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {bottomImg}
         </>
       )
     case MaterialChannel.banner:
       return (
         <>
-          {img}
-          {renderTopLayout({ processedStyle, channelId })}
+          {baseImg}
+          {renderTopLayoutWithProps()}
+          {bottomImg}
         </>
       )
     case MaterialChannel.cashierCard:
       return (
         <>
-          {img}
-          {renderTopLayout({ processedStyle, channelId })}
-          {renderProductList({ processedStyle, channelId, productList })}
-          {renderBottomLayout({ processedStyle, channelId })}
+          {baseImg}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
+          {renderExtra({ channelId })}
+        </>
+      )
+    case MaterialChannel.friendCircle:
+      return (
+        <>
+          {baseImg}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
+          {renderExtra({ channelId })}
         </>
       )
     default:
@@ -57,11 +92,7 @@ function renderChannel({ channelId, processedStyle, data }) {
   }
 }
 
-export default function TemplateTwo({
-  onGenerate,
-  data,
-  channel: channelProps,
-}) {
+export default function TemplateTwo({ data, channel: channelProps }) {
   const channel = MaterialChannelList.find(item => item.id === channelProps)
   if (!channel || !channel.layouts) {
     return null
@@ -72,8 +103,6 @@ export default function TemplateTwo({
     channel.posterRatio
     // 1
   )
-
-  console.log(processedStyle, 'processedStyle')
 
   return (
     <div

@@ -1,45 +1,51 @@
 import { MaterialChannel } from '../../../../../constant'
-import { BaseRect } from '../../../channels/base'
+import { CashierCardRect, FriendCircleRect, WindowPromotionRect } from '../../../channels'
+
+const TitleFontSize = '237px'
+const MiniFontSize = '33px'
+const SubtitleFontSize = '103px'
+const TimeLabelFontSize = '79px'
+const TimeDateFontSize = '182px'
 
 const CouponLayout = {
   productSubtitle: {
-    marginLeft: 636,
+    marginLeft: 114,
     marginTop: '1.5%',
   },
   materialProductCoupon: {
-    gap: '100px',
+    gap: '12px',
   },
   materialProductSlash: {
     type: 'text',
     content: '/',
     color: '#FBEF02',
-    fontSize: '200px',
-    lineHeight: '200px',
+    fontSize: MiniFontSize,
+    lineHeight: MiniFontSize,
+    marginLeft: 12,
   },
 }
 
 export const TopLayout = {
   materialTitleContainer: {
-    marginTop: 510,
-    marginLeft: 300,
-    marginRight: 300,
+    marginTop: 68,
+    marginLeft: 54,
+    marginRight: 54,
   },
   // 物料标题
   materialTitle: {
     type: 'text',
-    marginTop: '500px',
-    fontSize: '900px',
-    fontWeight: '900px',
-    lineHeight: '900px',
+    fontSize: TitleFontSize,
+    lineHeight: TitleFontSize,
+    fontWeight: '900',
     textAlign: 'center',
   },
   materialSubtitle: {
-    marginTop: '400px',
+    marginTop: '12px',
   },
   materialSubtitlePrefix: {
     type: 'text',
-    fontSize: '400px',
-    lineHeight: '400px',
+    fontSize: SubtitleFontSize,
+    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
@@ -48,16 +54,16 @@ export const TopLayout = {
   // 物料副标题 跟上这波车，拿下这福利!
   materialSubtitleContent: {
     type: 'text',
-    fontSize: '400px',
-    lineHeight: '400px',
+    fontSize: SubtitleFontSize,
+    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
   },
 
   materialSubtitleSuffix: {
     type: 'text',
-    fontSize: '400px',
-    lineHeight: '400px',
+    fontSize: SubtitleFontSize,
+    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
@@ -74,38 +80,36 @@ export const TopLayout = {
       'https://img01.yzcdn.cn/upload_files/2025/03/17/FhOYStbZOvldoAkCRIeeGUnF26Wt.png',
   },
   materialTime: {
-    marginTop: 400,
+    marginTop: 12,
   },
   // 活动时间
   materialTimeLabel: {
     type: 'text',
-    fontSize: '300px',
-    fontWeight: '900px',
-    lineHeight: '300px',
-    // marginLeft: '300px',
+    fontSize: TimeLabelFontSize,
+    lineHeight: TimeLabelFontSize,
     fontWeight: 900,
+    marginTop: 26,
   },
   // 年份
   materialTimeYear: {
     type: 'text',
-    fontWeight: '900px',
-    lineHeight: '300px',
-    fontSize: '300px',
+    fontSize: TimeLabelFontSize,
+    lineHeight: TimeLabelFontSize,
     fontWeight: 900,
   },
   //具体时间 "TIME > MM/DD-MM/DD"
   materialTimeDate: {
     type: 'text',
-    fontSize: '700px',
+    fontSize: TimeDateFontSize,
     fontWeight: 900,
-    lineHeight: '700px',
+    lineHeight: TimeDateFontSize,
     textAlign: 'start',
-    marginTop: '100px',
+    marginTop: 26,
   },
   // 活动时间装饰条
   materialTimeDecorator: {
     type: 'image',
-    width: '1500px',
+    width: 396,
     position: 'absolute',
     bottom: '5%',
     left: '0',
@@ -115,7 +119,7 @@ export const TopLayout = {
   // 年份装饰条
   materialYearDecorator: {
     type: 'image',
-    width: '738px',
+    width: 195,
     position: 'absolute',
     bottom: '5%',
     left: '0',
@@ -125,16 +129,16 @@ export const TopLayout = {
   // 活动时间分割-短
   materialShortDivide: {
     type: 'image',
-    width: '1158px',
-    height: '20px',
+    width: '12.9%',
+    height: '5px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fo7UE5unpOU03PiWj79At5_mtA90.png',
   },
   // 活动时间日期
   materialLongDivide: {
     type: 'image',
-    width: '5262px',
-    height: '20px',
+    width: '59.2%',
+    height: '5px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
   },
@@ -146,24 +150,81 @@ export const TopLayout = {
   },
 }
 
+export const ProductLayout = {
+  productsContainer: {
+    position: 'relative',
+    marginLeft: 77,
+    // marginTop: 45,
+  },
+  productContainer: {
+    marginTop: 20,
+    display: 'flex',
+    justifyContent: 'center',
+  },
+  productTitle: {
+    marginLeft: 114,
+  },
+  productBackground: {
+    type: 'image',
+    width: 1622,
+    height: 406,
+    left: '0',
+    top: '0',
+    position: 'absolute',
+    content:
+      'https://img01.yzcdn.cn/upload_files/2025/03/17/FneEvpcghLF8Ny2kQdiiQTRIb__g.png',
+  },
+}
+
 export const BottomLayout = {
   materialBottomContainer: {
     zIndex: 2,
     position: 'absolute',
     width: '100%',
-    bottom: '800px',
-    height: '2284px',
-    width: '8864px',
-    marginLeft: '291px',
+    bottom: '220px',
+    height: '603px',
+    width: '2372px',
+    marginLeft: 54,
     textAlign: 'left',
   },
   // 扫码参与
   materialScan: {
     type: 'text',
-    marginTop: '600px',
-    fontSize: '400px',
-    lineHeight: '400px',
+    marginTop: '106px',
+    fontSize: '104px',
+    lineHeight: '104px',
     textAlign: 'center',
+  },
+  // 扫码参与
+  materialScanText: {
+    type: 'text',
+    fontWeight: '500',
+    fontSize: '104px',
+    lineHeight: '104px',
+    color: '#fff',
+    marginTop: 106,
+  },
+  // 使用小程序即可充值
+  materialQrCodeText: {
+    type: 'text',
+    fontWeight: '500',
+    fontSize: '104px',
+    lineHeight: '104px',
+    color: '#fff',
+    marginTop: '26px',
+  },
+  // *本次活动最终解释权归活动方所有
+  materialTips: {
+    type: 'text',
+    fontWeight: '400',
+    fontSize: '52px',
+    lineHeight: '52px',
+    color: '#fff',
+    marginTop: '26px',
+  },
+  materialScanTextContainer: {
+    marginLeft: '53px',
+    marginTop: '53px',
   },
   qrCodeContainer: {
     position: 'absolute',
@@ -171,45 +232,16 @@ export const BottomLayout = {
     bottom: 0,
     zIndex: 2,
   },
-  // 二维码
-  materialQrCode: {
-    type: 'image',
-    width: '80px',
-    height: '80px',
-    position: 'absolute',
-    top: '660px',
-    left: '650px',
-  },
-  materialScanTextContainer: {
-    marginLeft: '200px',
-    marginTop: '400px',
-  },
-  // 扫码参与
-  materialScanText: {
-    type: 'text',
-    fontWeight: '500',
-    fontSize: '400px',
-    lineHeight: '400px',
-    color: '#fff',
-  },
-  // 使用小程序即可充值
-  materialQrCodeText: {
-    type: 'text',
-    fontWeight: '500',
-    fontSize: '400px',
-    lineHeight: '400px',
-    color: '#fff',
-    marginTop: '100px',
-  },
-  // *本次活动最终解释权归活动方所有
-  materialTips: {
-    type: 'text',
-    fontWeight: '400',
-    fontSize: '200px',
-    lineHeight: '200px',
-    color: '#fff',
-    marginTop: '100px',
-  },
+  // // 二维码
+  // materialQrCode: {
+  //   type: 'image',
+  //   width: '80px',
+  //   height: '80px',
+  //   position: 'absolute',
+  //   top: '660px',
+  //   left: '650px',
+  // },
+
   // qrcode
   materialQrCode: {
     type: 'image',
@@ -224,16 +256,7 @@ export const BottomLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/19/FsemU_caSE_YDxn9xCC6cLhHlt5u.png',
   },
-  // 底部装饰条
-  materialBottomDecorationBar: {
-    type: 'image',
-    width: '100%',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
-    position: 'absolute',
-    bottom: '0',
-    left: 0,
-  },
+
   materialQrcode: {
     type: 'image',
     width: '80px',
@@ -242,11 +265,12 @@ export const BottomLayout = {
     top: '660px',
     left: '650px',
   },
-  materialQrDecoration: {
-    type: 'image',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/19/FvwjDuPmalUvBAWGa-VpWk-Flysj.png',
-  },
+  // materialQrDecoration: {
+  //   type: 'image',
+  //   content:
+  //     'https://img01.yzcdn.cn/upload_files/2025/03/19/FvwjDuPmalUvBAWGa-VpWk-Flysj.png',
+
+  // },
   materialBlackBackground: {
     type: 'image',
     position: 'absolute',
@@ -258,50 +282,69 @@ export const BottomLayout = {
   },
 }
 
-export const ProductLayout = {
-  productsContainer: {
-    position: 'relative',
-    marginLeft: 300,
-  },
-  productTitle: {
-    marginLeft: 626,
-    // marginTop: 345,
-    firstMarginTop: 800
-  },
-  productContainer: {
-    firstMarginTop: '-360px',
-    marginTop: '200px',
-    justifyContent: 'center',
-  },
+export const renderExtra = ({ channelId }) => {
+  return (
+    <>
+      <img
+        data-id={channelId}
+        style={{
+          position: 'absolute',
+          top: '900px',
+          right: '55px',
+        }}
+        src="https://img01.yzcdn.cn/upload_files/2025/03/30/FvzceK5uJ2TE9Ym42AHp4FFJHXTu.png"
+      />
+      <img
+        style={{
+          position: 'absolute',
+          top: 1344,
+          left: 1782,
+          width: 653,
+          height: 653,
+          zIndex: 2,
+        }}
+      ></img>
 
-  productBackground: {
-    type: 'image',
-    // width: '93.86%',
-    firstHeight: '3678px',
-    height: '2932px',
-    left: '0',
-    top: '0',
-    position: 'absolute',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/17/FneEvpcghLF8Ny2kQdiiQTRIb__g.png',
-    firstContent:
-      'https://img01.yzcdn.cn/upload_files/2025/03/17/Fn-gMp1CzOSbirw2WI4T5aLnR4Td.png',
-  },
+      <img
+        data-id={channelId}
+        style={{
+          position: 'absolute',
+          top: 1344 + 670,
+          left: 1840,
+          width: 520,
+          height: 162,
+          zIndex: 2,
+        }}
+        src="https://img01.yzcdn.cn/upload_files/2025/03/30/Fkoo6QdH_IuUPYM1h5AXA06aM_9t.png"
+      ></img>
+      <img
+        data-id={channelId}
+        style={{
+          position: 'absolute',
+          top: 2320,
+          left: 1616,
+          zIndex: 2,
+        }}
+        src="https://img01.yzcdn.cn/upload_files/2025/03/30/Fonz_6xncDoMvYqXyeIsNa-ILtRl.png"
+        alt=""
+      />
+    </>
+  )
 }
 
 export default {
-  id: MaterialChannel.ylb,
+  id: MaterialChannel.friendCircle,
 
   layouts: {
     sizeInfo: {
-      largeFontSize: '1706px',
-      normalFontSize: '680px',
-      smallFontSize: '386px',
-      miniFontSize: '256px',
+      largeFontSize: '235px',
+      normalFontSize: '93px',
+      smallFontSize: '56px',
+      miniFontSize: MiniFontSize,
     },
     materialGenerator: {
-      width: BaseRect.width,
-      height: BaseRect.height,
+      width: FriendCircleRect.width,
+      height: FriendCircleRect.height,
       position: 'absolute',
     },
     materialBackground: {
@@ -321,9 +364,19 @@ export default {
       type: 'image',
       width: '69.51%',
     },
-    ...BottomLayout,
     ...CouponLayout,
     ...TopLayout,
     ...ProductLayout,
+    ...BottomLayout,
+    // 底部装饰条
+    materialBottomDecorationBar: {
+      type: 'image',
+      width: '100%',
+      content:
+        'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
+      position: 'absolute',
+      bottom: '0',
+      left: 0,
+    },
   },
 }

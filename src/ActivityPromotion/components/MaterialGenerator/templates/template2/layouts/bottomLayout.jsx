@@ -6,12 +6,14 @@ export function renderBottomLayout({ processedStyle, channelId }) {
         style={processedStyle.materialBottomContainer}
       >
         <div style={processedStyle.qrCodeContainer}>
-          <img
-            data-id={channelId}
-            style={processedStyle.materialQrDecoration}
-            src={processedStyle.materialQrDecoration.content}
-            alt=""
-          />
+          {processedStyle.materialQrDecoration && (
+            <img
+              data-id={channelId}
+              style={processedStyle.materialQrDecoration}
+              src={processedStyle.materialQrDecoration.content}
+              alt=""
+            />
+          )}
           <img
             data-id={channelId}
             style={processedStyle.materialQrCode}

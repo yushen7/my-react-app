@@ -1,70 +1,71 @@
 import { MaterialChannel } from '../../../../constant'
-import { processCommonStyle } from '../../utils'
+import { processScale } from '../../utils'
 import { renderBottomLayout } from './layouts/bottomLayout'
-import { AllConfigs } from './layouts/layout'
 import { renderProductList } from './layouts/productLayout'
 import { renderTopLayout } from './layouts/topLayout'
+import MaterialChannelList from './channels'
 
-const processedStyle = processCommonStyle(AllConfigs)
+function renderChannel({ channelId, processedStyle, data }) {
+  const productList = data.rechargeList
 
-function renderChannel(channel) {
-  switch (channel) {
+  const renderTopLayoutWithProps = () => {
+    return renderTopLayout({ processedStyle, channelId, data })
+  }
+  const renderProductListWithProps = () => {
+    return renderProductList({ processedStyle, channelId, productList })
+  }
+  const renderBottomLayoutWithProps = () => {
+    return renderBottomLayout({ processedStyle, channelId, data })
+  }
+
+  const bgImg = (
+    <img
+      data-id="materialBackground"
+      src={processedStyle.materialBackground.content}
+      alt="background"
+      style={processedStyle.materialBackground}
+      className="background"
+    />
+  )
+
+  switch (channelId) {
     case MaterialChannel.ylb:
       return (
         <>
+          {bgImg}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
           <img
-            data-id="materialBackground"
-            src={processedStyle.materialBackground.previewContent}
-            alt="background"
-            style={processedStyle.materialBackground}
-            className="background"
+            data-id={channelId}
+            style={processedStyle.materialDecorationBar}
+            src={processedStyle.materialDecorationBar.content}
           />
-          {renderTopLayout()}
-          {renderProductList()}
-          {renderBottomLayout()}
         </>
       )
     case MaterialChannel.windowPromotion:
       return (
         <>
-          <img
-            data-id="materialBackground"
-            src="https://img01.yzcdn.cn/upload_files/2025/03/13/lp-V-wRHoi-ZSiNCMIGvR9uSbuAz.png"
-            alt="background"
-            style={processedStyle.materialBackground}
-            className="background"
-          />
-          {renderTopLayout()}
-          {renderProductList()}
+          {bgImg}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
         </>
       )
     case MaterialChannel.banner:
       return (
         <>
-          <img
-            data-id="materialBackground"
-            o
-            src="https://img01.yzcdn.cn/upload_files/2025/03/13/lp-V-wRHoi-ZSiNCMIGvR9uSbuAz.png"
-            alt="background"
-            style={processedStyle.materialBackground}
-            className="background"
-          />
-          {renderTopLayout()}
+          {bgImg}
+          {renderTopLayoutWithProps()}
         </>
       )
     case MaterialChannel.cashierCard:
       return (
         <>
-          <img
-            data-id="materialBackground"
-            src="https://img01.yzcdn.cn/upload_files/2025/03/13/lp-V-wRHoi-ZSiNCMIGvR9uSbuAz.png"
-            alt="background"
-            style={processedStyle.materialBackground}
-            className="background"
-          />
-          {renderTopLayout()}
-          {renderProductList()}
-          {renderBottomLayout()}
+          {bgImg}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
         </>
       )
     default:
@@ -72,14 +73,39 @@ function renderChannel(channel) {
   }
 }
 
-export default function TemplateOne() {
-  return (
-    <>
-      {renderChannel(MaterialChannel.ylb)}
+export default function TemplateOne({ data, channel: channelProps }) {
+  const channel = MaterialChannelList.find(item => item.id === channelProps)
+  if (!channel || !channel.layouts) {
+    return null
+  }
 
-      {/* {renderChannel(MaterialChannel.windowPromotion)} */}
-      {/* {renderChannel(MaterialChannel.banner)} */}
-      {/* {renderChannel(MaterialChannel.cashierCard)} */}
-    </>
+
+  console.log(channel, 'channel')
+  const processedStyle = processScale(
+    channel.layouts,
+    channel.posterRatio
+    // 1
+  )
+
+  return (
+    <div
+      style={{
+        transformOrigin: 'top left',
+        // opacity: 0,
+        position: 'absolute',
+      }}
+    >
+      <div
+        key={channel.id}
+        className={channel.id}
+        style={processedStyle.materialGenerator}
+      >
+        {renderChannel({
+          channelId: channel.id,
+          processedStyle,
+          data,
+        })}
+      </div>
+    </div>
   )
 }

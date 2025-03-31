@@ -33,7 +33,10 @@ const getCouponInfo = (coupon, couponIndex) => {
   return null
 }
 
-const formatDateString = (dateString, options = {}) => {
+const formatDateString = (
+  dateString,
+  options = { removeYear: false, divider: '.' }
+) => {
   const date = new Date(dateString)
   const year = date.getFullYear()
   const month =
@@ -41,18 +44,33 @@ const formatDateString = (dateString, options = {}) => {
       ? `0${date.getMonth() + 1}`
       : `${date.getMonth() + 1}`
   const day = date.getDate() < 10 ? `0${date.getDate()}` : `${date.getDate()}`
-  return `${options.removeYear ? '' : year + '.'}${month}.${day}`
+  return `${options.removeYear ? '' : year + options.divider}${month}${
+    options.divider
+  }${day}`
 }
 
 export function processPlanData(planData) {
-  console.log(planData, 'planData')
   return {
     title: planData.activityName,
     subtitle: planData.activityObjective,
+    // YYYY.MM.DD - MM.DD
     startDate: formatDateString(planData.activityDate[0]),
     endDate: formatDateString(planData.activityDate[1], {
       removeYear: true,
+      divider: '.',
     }),
+
+    // 获取年份
+    year: new Date(planData.activityDate[0]).getFullYear(),
+    // 获取 MM/DD-MM/DD
+    monthDate: `${formatDateString(planData.activityDate[0], {
+      divider: '/',
+      removeYear: true,
+    })}-${formatDateString(planData.activityDate[1], {
+      divider: '/',
+      removeYear: true,
+    })}`,
+
     rechargeList: planData.rechargeList.map(item => ({
       ...item,
       amount: item.amount,

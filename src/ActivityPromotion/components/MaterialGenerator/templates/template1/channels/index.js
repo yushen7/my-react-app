@@ -1,17 +1,21 @@
 import { MaterialChannelList } from '../../../channels'
 import banner from './banner'
+// import banner from './banner'
 import cashierCard from './cashierCard'
 import windowPromotion from './windowPromotion'
+// import windowPromotion from './windowPromotion'
 import YLBChannel from './ylb'
-import friendCircle from './friendCircle'
+// import friendCircle from './friendCircle'
 
-const AllLayouts = [
-  YLBChannel,
-  windowPromotion,
-  banner,
-  cashierCard,
-  friendCircle,
-]
+// const AllLayouts = [
+//   YLBChannel,
+//   windowPromotion,
+//   banner,
+//   cashierCard,
+//   friendCircle,
+// ]
+
+const AllLayouts = [banner]
 
 export default MaterialChannelList.map(item => {
   const matched = AllLayouts.find(layout => layout.id === item.id)
