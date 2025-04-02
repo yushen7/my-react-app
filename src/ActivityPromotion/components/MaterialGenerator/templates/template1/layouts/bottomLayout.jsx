@@ -19,7 +19,7 @@ export function renderBottomLayout({ processedStyle, channelId, data }) {
           </div>
           {processedStyle.materialScanText3 && (
             <div data-id={channelId} style={processedStyle.materialScanText3}>
-              活动地址:阿拉呱呱吾悦广场后占悦金街S91051-1053号
+              活动地址:{data.address}
             </div>
           )}
 

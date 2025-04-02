@@ -1,12 +1,5 @@
 // import { Button, Pop } from 'zent'
 
-const Button = ({ children }) => {
-  return <div>{children}</div>
-}
-const Pop = ({ children, content }) => {
-  return <div>{content}</div>
-}
-
 export const MaterialChannel = {
   /** 易拉宝 poster */
   ylb: 'ylb',
@@ -36,15 +29,6 @@ export const OnlineMaterials = [
     description: (
       <span>
         通过弹窗广告的方式,在商城的页面展示,
-        <Pop
-          trigger="hover"
-          position="right-top"
-          content={
-            <img src="https://img01.yzcdn.cn/upload_files/2025/03/20/Ft3RkHOZbtoYRQb7_ICuUtAhOV0b.png" />
-          }
-        >
-          <Button type="text">查看示例</Button>
-        </Pop>
       </span>
     ),
     imageUrl: '',
@@ -56,15 +40,6 @@ export const OnlineMaterials = [
     description: (
       <span>
         通过banner的方式,在商城的首页展示,
-        <Pop
-          trigger="hover"
-          position="right-top"
-          content={
-            <img src="https://img01.yzcdn.cn/upload_files/2025/03/20/FvE9Yd0ebk6kD6q5kFNMTLCaGGuo.png" />
-          }
-        >
-          <Button type="text">查看示例</Button>
-        </Pop>
       </span>
     ),
     imageUrl: '',
@@ -76,15 +51,6 @@ export const OnlineMaterials = [
     description: (
       <span>
         用于在朋友圈推广活动时的配图,
-        <Pop
-          trigger="hover"
-          position="right-top"
-          content={
-            <img src="https://img01.yzcdn.cn/upload_files/2025/03/20/FnC6bAZMCvqs90nCdzbChq6tpnU2.png" />
-          }
-        >
-          <Button type="text">查看示例</Button>
-        </Pop>
       </span>
     ),
     imageUrl: '',
@@ -99,15 +65,6 @@ export const OfflineMaterials = [
     description: (
       <span>
         用于做成易拉宝等实体物料,放置在店铺门口展示活动,
-        <Pop
-          trigger="hover"
-          position="right-top"
-          content={
-            <img src="https://img01.yzcdn.cn/upload_files/2025/03/20/FkpbcwQHVt49Sq7dXnUP4dlMl4aB.png" />
-          }
-        >
-          <Button type="text">查看示例</Button>
-        </Pop>
       </span>
     ),
     imageUrl: '',
@@ -119,15 +76,6 @@ export const OfflineMaterials = [
     description: (
       <span>
         用于做成台卡的实体物料,放置在收银台展示活动,
-        <Pop
-          trigger="hover"
-          position="right-top"
-          content={
-            <img src="https://img01.yzcdn.cn/upload_files/2025/03/20/Fhxi7K-sREFnr66rORXNXjrJ1Clm.png" />
-          }
-        >
-          <Button type="text">查看示例</Button>
-        </Pop>
       </span>
     ),
     imageUrl: '',

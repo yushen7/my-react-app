@@ -11,6 +11,7 @@ function renderChannel({ channelId, processedStyle, data }) {
 
   const baseImg = (
     <img
+      data-type="background"
       data-id={channelId}
       src={processedStyle.materialBackground.previewContent}
       alt="background"

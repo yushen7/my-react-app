@@ -62,7 +62,7 @@ export const TopLayout = {
     type: 'text',
     marginTop: '400px',
     fontSize: '900px',
-    fontWeight: '900px',
+    fontWeight: '900',
     lineHeight: '900px',
     textAlign: 'left',
     content: '甜蜜开业季储值送现金',
@@ -105,7 +105,7 @@ export const TopLayout = {
   materialTimeDate: {
     type: 'text',
     fontSize: '700px',
-    fontWeight: '900px',
+    fontWeight: '900',
     lineHeight: '700px',
     marginTop: '300px',
     content: '2025.11.11 - 11.21',
@@ -128,6 +128,16 @@ export const TopLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/FrT3I_IJkfiiioxXNFZSOb0xMRuE.png',
   },
+  qrCodeText: {
+    type: 'text',
+    fontSize: '300px',
+    position: 'absolute',
+    top: '200px',
+    textAlign: 'center',
+    color: '#000',
+    width: '100%',
+    content: '扫码参与更多惊喜',
+  }
 }
 
 export const BottomLayout = {
@@ -221,6 +231,7 @@ const ProductLayout = {
     width: '100%',
     position: 'absolute',
     top: '-2%',
+    left: '0',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/Fl6khYfuKhoT4IKQEbLaS6Cvqpes.png',
   },

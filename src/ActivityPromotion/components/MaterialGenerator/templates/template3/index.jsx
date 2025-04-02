@@ -1,59 +1,16 @@
-import { useEffect, useRef } from 'react'
-import { getPoster } from '../../api'
 import { MaterialChannel } from '../../../../constant'
-import { calculateElementOffsets, processScale } from '../../utils'
+import { processScale } from '../../utils'
 import channels from './channels'
 import { renderBottomLayout } from './layouts/bottomLayout'
 import { renderProductList } from './layouts/productLayout'
 import { renderTopLayout } from './layouts/topLayout'
-// import store from '../../../../../../../../common/store'
-import qrCode from 'qrcode';
-
-const store = {
-  getStore() {
-    return {
-      windowProxy: window
-    }
-  }
-}
-
-function fabricElements2HTML(fabricElements) {
-  let htmlString =
-    '<style>div,img{position:absolute;}div{z-index:2; font-family: "HarmonyOS Sans SC";}img{z-index:1;} </style> <div class="material-container" style="position: relative;">'
-
-  fabricElements.forEach(element => {
-    const commonStyles = `
-      top: ${element.top}px;
-      left: ${element.left}px;
-      width: ${element.width}px;
-      height: ${element.height}px;
-    `
-
-    if (element.type === 'text') {
-      const textStyles = `
-        ${commonStyles}
-        font-size: ${element.fontSize};
-        font-weight: ${element.fontWeight};
-        line-height: ${element.lineHeight};
-        color: ${element.color};
-        text-align: ${element.textAlign};
-      `
-
-      htmlString += `<div style="${textStyles}">${element.text}</div>`
-    } else if (element.type === 'image') {
-      htmlString += `<img src="${element.content}" style="${commonStyles}" />`
-    }
-  })
-
-  htmlString += '</div>'
-  return htmlString
-}
 
 function renderChannel({ channelId, processedStyle, data }) {
   const { rechargeList } = data
   const bgImg = (
     <img
       data-id={channelId}
+      data-type="background"
       src={processedStyle.materialBackground.previewContent}
       alt="background"
       style={processedStyle.materialBackground}
@@ -124,47 +81,9 @@ function renderChannel({ channelId, processedStyle, data }) {
   }
 }
 
-export default function TemplateThree({
-  onGenerate,
-  data,
-  channel: channelProps,
-}) {
-  const { windowProxy } = store.getStore()
-  const timeout = useRef(null)
-  const batchGetPosters = channel => {
-    const calResult = calculateElementOffsets(windowProxy, {
-      ratio: channel.posterRatio,
-      keepSize: true,
-      className: channel.id,
-    })
-
-    return getPoster({
-      elements: JSON.stringify(calResult),
-      width: channel.width * channel.posterRatio,
-      height: channel.height * channel.posterRatio,
-    })
-      .then(res => {
-        if (!res || !res.img) {
-          return
-        }
-        onGenerate({
-          id: channel.id,
-          img: res.img,
-        })
-      })
-  }
-
+export default function TemplateThree({ data, channel: channelProps }) {
   const channel = channels.find(item => item.id === channelProps)
 
-  useEffect(() => {
-    clearTimeout(timeout.current)
-    timeout.current = setTimeout(() => {
-      batchGetPosters(channel)
-    }, 5000)
-    return () => {
-      clearTimeout(timeout.current)
-    }
-  }, [channel])
   if (!channel) {
     return null
   }

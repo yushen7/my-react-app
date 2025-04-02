@@ -1,6 +1,7 @@
 import logo from './logo.svg'
 import './App.css'
 import { useActivityPromotion } from './ActivityPromotion'
+import { AllMaterials } from './ActivityPromotion/constant'
 
 const planData = {
   activityBackground:
@@ -143,6 +144,10 @@ const planData = {
       },
     ],
   },
+  activityPromotion: {
+    selectedMaterials: AllMaterials.map(item => item.id),
+  },
+  generationStatus: 'generated'
 }
 
 function App() {

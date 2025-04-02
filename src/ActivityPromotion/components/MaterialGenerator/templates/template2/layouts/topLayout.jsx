@@ -15,7 +15,7 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
         </div>
 
         <div style={processedStyle.materialTitleContainer}>
-          <div data-id={channelId} style={processedStyle.materialTitle}>
+          <div data-align="center" data-id={channelId} style={processedStyle.materialTitle}>
             {data.title}
           </div>
           <div style={processedStyle.materialSubtitle}>
@@ -31,10 +31,11 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
               {'{'}
             </div>
             <div
+              data-align="center"
               data-id={channelId}
               style={processedStyle.materialSubtitleContent}
             >
-              跟上这波车，拿下这福利
+              跟上这波车，拿下这福利！
             </div>
             <div
               data-id={channelId}

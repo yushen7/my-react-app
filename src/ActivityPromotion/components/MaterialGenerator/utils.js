@@ -1,4 +1,7 @@
+// import { getStore } from "../../../../../../common/store"
+
 // 这里我们已经在数据定义时放大了尺寸，所以在处理时需要反向缩小回来以便正确显示
+
 export const processScale = (data = {}, displayMultiple = 1) => {
   const afterScale = {
     ...data,
@@ -43,11 +46,18 @@ function withPx(value, ratio = 1) {
   return (Number(omitPx) * ratio).toFixed(2) + 'px'
 }
 
+function getStore() {
+  return {
+    windowProxy: window
+  }
+}
+
 /**
  * 计算所有带ID的元素相对于material-generator的偏移量
  * 并返回可用于Fabric.js的格式
  */
-export function calculateElementOffsets(windowProxy, { ratio, className }) {
+export function calculateElementOffsets({ ratio, className }) {
+  const { windowProxy } = getStore()
   // 获取父容器元素
   const container = document.querySelector(`.${className}`)
   if (!container) {
@@ -70,7 +80,8 @@ export function calculateElementOffsets(windowProxy, { ratio, className }) {
 
   // 遍历每个元素，计算相对偏移量
   elements.forEach(element => {
-    const dataId = element.getAttribute('data-id')
+    const dataType = element.getAttribute('data-type')
+    const dataAlign = element.getAttribute('data-align')
     // 跳过父容器自身
     if (element.id === className) return
 
@@ -107,10 +118,11 @@ export function calculateElementOffsets(windowProxy, { ratio, className }) {
       }
 
       // 如果是背景图片，添加标记
-      if (dataId === 'materialBackground') {
+      if (dataType === 'background') {
         fabricElement.isBaseMapImg = true
       }
     } else {
+      const content = element.getAttribute('data-fabric')
       // ratio 小于 1，说明是缩小的，需要乘以 ratio
       const fontRatio = ratio
       // 文本类型
@@ -120,12 +132,17 @@ export function calculateElementOffsets(windowProxy, { ratio, className }) {
         // 为什么要加上10....
         width: Number(commonProps.width) + 10,
         type: 'text',
+        fabricText: content,
         text: text,
         fontSize: withPx(computedStyle.fontSize, fontRatio),
         lineHeight: withPx(computedStyle.lineHeight, fontRatio),
         fontWeight: computedStyle.fontWeight,
         color: computedStyle.color,
-        textAlign: computedStyle.textAlign || 'left',
+        textAlign: computedStyle.textAlign,
+      }
+
+      if (dataAlign === 'center') {
+        fabricElement.fabricTextAlign = 'center'
       }
     }
 

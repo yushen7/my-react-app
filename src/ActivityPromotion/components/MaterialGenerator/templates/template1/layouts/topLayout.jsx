@@ -12,11 +12,14 @@ export const renderTopLayout = ({ channelId, processedStyle, data }) => {
 
       <div style={processedStyle.topContainer1}>
         <div style={processedStyle.logoContainer}>
-          <img
-            data-id={channelId}
-            style={processedStyle.materialLogoLeft}
-            src={processedStyle.materialLogoLeft.content}
-          />
+          {processedStyle.materialLogoLeft && (
+            <img
+              data-id={channelId}
+              style={processedStyle.materialLogoLeft}
+              src={processedStyle.materialLogoLeft.content}
+            />
+          )}
+
           <img
             data-id={channelId}
             style={processedStyle.materialLongDivide}
@@ -53,6 +56,9 @@ export const renderTopLayout = ({ channelId, processedStyle, data }) => {
       {/** 扫码 */}
       {processedStyle.qrCodeContainer && (
         <div style={processedStyle.qrCodeContainer}>
+          <div data-id={channelId} style={processedStyle.qrCodeText}>
+            {processedStyle.qrCodeText.content}
+          </div>
           {/** 扫码装饰 */}
           <img
             data-id={channelId}

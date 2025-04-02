@@ -116,37 +116,45 @@ export const renderProductList = ({
                   {item.amount}
                 </div>
               </div>
+              {item.giftPacks.bonusAmount > 0 && (
+                <>
+                  <div
+                    data-id={channelId}
+                    style={productLayout[`materialProductBonusText3${index}`]}
+                  >
+                    送
+                  </div>
+                  <div style={{ marginLeft: '2%', position: 'relative' }}>
+                    <img
+                      data-id={channelId}
+                      style={
+                        productLayout[
+                          `materialProductBonusText4Decoration${index}`
+                        ]
+                      }
+                      src={
+                        productLayout[
+                          `materialProductBonusText4Decoration${index}`
+                        ].content
+                      }
+                    />
 
-              <div
-                data-id={channelId}
-                style={productLayout[`materialProductBonusText3${index}`]}
-              >
-                送
-              </div>
-              <div style={{ marginLeft: '2%', position: 'relative' }}>
-                <img
-                  data-id={channelId}
-                  style={
-                    productLayout[`materialProductBonusText4Decoration${index}`]
-                  }
-                  src={
-                    productLayout[`materialProductBonusText4Decoration${index}`]
-                      .content
-                  }
-                />
-                <div
-                  data-id={channelId}
-                  style={productLayout[`materialProductBonusText4${index}`]}
-                >
-                  {item.giftPacks.bonusAmount}
-                </div>
-              </div>
+                    <div
+                      data-id={channelId}
+                      style={productLayout[`materialProductBonusText4${index}`]}
+                    >
+                      {item.giftPacks.bonusAmount}
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
-            {renderCouponLayout({
-              coupons: item.giftPacks.coupons,
-              processedStyle,
-              channelId,
-            })}
+            {item.giftPacks.coupons.length > 0 &&
+              renderCouponLayout({
+                coupons: item.giftPacks.coupons,
+                processedStyle,
+                channelId,
+              })}
           </div>
         )
       })}

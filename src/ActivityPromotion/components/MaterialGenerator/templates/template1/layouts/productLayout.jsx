@@ -23,6 +23,7 @@ const getProductLayout = (
         fontSize: normalFontSize,
         width: normalFontSize,
         lineHeight: normalFontSize,
+        letterSpacing: '-5px'
       }
 
       // `xx`
@@ -69,7 +70,10 @@ export const renderProductList = ({
   const productLayout = { ...rest, ...getProductLayout(productList, sizeInfo) }
   return (
     <>
-      <div style={productLayout.productContainer1} className="template1-products">
+      <div
+        style={productLayout.productContainer1}
+        className="template1-products"
+      >
         <img
           data-id={channelId}
           style={productLayout.materialProductBackground}
@@ -85,6 +89,8 @@ export const renderProductList = ({
               <div className="product-title" style={productLayout.productTitle}>
                 <div
                   data-id={channelId}
+                  data-fabric={`充
+值`}
                   style={productLayout[`materialProductBonusText1${index}`]}
                 >
                   充值
@@ -100,29 +106,36 @@ export const renderProductList = ({
                   style={productLayout.materialPriceSuffix}
                   src={productLayout.materialPriceSuffix.content}
                 />
-                <div
-                  data-id={channelId}
-                  style={productLayout[`materialProductBonusText3${index}`]}
-                >
-                  送
-                </div>
-                <div
-                  data-id={channelId}
-                  style={productLayout[`materialProductBonusText4${index}`]}
-                >
-                  {item.giftPacks.bonusAmount}
-                </div>
+                {item.giftPacks.bonusAmount > 0 && (
+                  <>
+                    <div
+                      data-id={channelId}
+                      style={productLayout[`materialProductBonusText3${index}`]}
+                    >
+                      送
+                    </div>
+
+                    <div
+                      data-id={channelId}
+                      style={productLayout[`materialProductBonusText4${index}`]}
+                    >
+                      {item.giftPacks.bonusAmount}
+                    </div>
+                  </>
+                )}
+
                 <img
                   data-id={channelId}
                   style={productLayout.materialPriceSuffix}
                   src={productLayout.materialPriceSuffix.content}
                 />
               </div>
-              {renderCouponLayout({
-                coupons: item.giftPacks.coupons,
-                channelId,
-                processedStyle,
-              })}
+              {item.giftPacks.coupons.length > 0 &&
+                renderCouponLayout({
+                  coupons: item.giftPacks.coupons,
+                  processedStyle,
+                  channelId,
+                })}
               {/** 分割线 */}
               <img
                 data-id={channelId}

@@ -2,7 +2,7 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
   return (
     <div className="template3-top" style={processedStyle.container1}>
       {/** 标题 */}
-      <div data-id={channelId} style={processedStyle.materialTitle}>
+      <div data-id={channelId} data-align="center" style={processedStyle.materialTitle}>
         {data.title}
       </div>
 

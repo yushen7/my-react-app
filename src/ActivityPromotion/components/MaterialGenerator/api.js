@@ -1,6 +1,5 @@
 // import request from '../../../../../../common/helper/request'
-
-const request = async () => {}
+const request = () => {}
 
 const prefix = '/v4/third-plugin/prepaid-expert'
 
@@ -25,20 +24,6 @@ export const fetchShopPubImgToken = () => {
     url: `${prefix}/shopPubImgUploadToken.json`,
     method: 'POST',
     useBizRequest: true,
-  })
-}
-
-/** 获取二维码
- * @returns {Promise<{qrCode: string}>} - Promise对象
- */
-export const getPrepaidPromotionQrCode = () => {
-  return dataRequest({
-    url: `${prefix}/getPrepaidPromotionQrCode.json`,
-    method: 'GET',
-    useBizRequest: true,
-    data: {
-      pagepath: `packages/pre-card/home/index?entry=1`,
-    },
   })
 }
 

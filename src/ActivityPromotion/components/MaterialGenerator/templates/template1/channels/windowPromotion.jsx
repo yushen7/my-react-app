@@ -53,7 +53,7 @@ export const TopLayout = {
   // 左边logo图案
   materialLogoLeft: {
     type: 'image',
-    width: '14.5%',
+    width: '200px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/FvivJF0Dvju06FBbhe2PRe_n3E99.png',
   },
@@ -71,12 +71,12 @@ export const TopLayout = {
   // logo分割线
   materialLongDivide: {
     type: 'image',
-    width: '50.71%',
-    height: '5px',
+    width: '663px',
+    height: '1px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
-    marginLeft: '28px',
-    marginRight: '28px',
+    marginLeft: '16px',
+    marginRight: '16px',
   },
 
   // 右侧 logo 文字 {2025} Stored value activity

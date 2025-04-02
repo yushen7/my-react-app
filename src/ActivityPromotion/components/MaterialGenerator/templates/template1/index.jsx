@@ -20,7 +20,8 @@ function renderChannel({ channelId, processedStyle, data }) {
 
   const bgImg = (
     <img
-      data-id="materialBackground"
+      data-type="background"
+      data-id={channelId}
       src={processedStyle.materialBackground.content}
       alt="background"
       style={processedStyle.materialBackground}
@@ -68,6 +69,15 @@ function renderChannel({ channelId, processedStyle, data }) {
           {renderBottomLayoutWithProps()}
         </>
       )
+    case MaterialChannel.friendCircle:
+      return (
+        <>
+          {bgImg}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
+        </>
+      )
     default:
       return null
   }
@@ -79,8 +89,6 @@ export default function TemplateOne({ data, channel: channelProps }) {
     return null
   }
 
-
-  console.log(channel, 'channel')
   const processedStyle = processScale(
     channel.layouts,
     channel.posterRatio
