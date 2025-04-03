@@ -23,7 +23,7 @@ const getProductLayout = (
         fontSize: normalFontSize,
         width: normalFontSize,
         lineHeight: normalFontSize,
-        letterSpacing: '-5px'
+        letterSpacing: '-5px',
       }
 
       // `xx`
@@ -70,15 +70,15 @@ export const renderProductList = ({
   const productLayout = { ...rest, ...getProductLayout(productList, sizeInfo) }
   return (
     <>
+      <img
+        data-id={channelId}
+        style={productLayout.materialProductBackground}
+        src={productLayout.materialProductBackground.content}
+      />
       <div
         style={productLayout.productContainer1}
         className="template1-products"
       >
-        <img
-          data-id={channelId}
-          style={productLayout.materialProductBackground}
-          src={productLayout.materialProductBackground.content}
-        />
         {productList.map((item, index) => {
           return (
             <div
@@ -121,14 +121,13 @@ export const renderProductList = ({
                     >
                       {item.giftPacks.bonusAmount}
                     </div>
+                    <img
+                      data-id={channelId}
+                      style={productLayout.materialPriceSuffix}
+                      src={productLayout.materialPriceSuffix.content}
+                    />
                   </>
                 )}
-
-                <img
-                  data-id={channelId}
-                  style={productLayout.materialPriceSuffix}
-                  src={productLayout.materialPriceSuffix.content}
-                />
               </div>
               {item.giftPacks.coupons.length > 0 &&
                 renderCouponLayout({
@@ -146,11 +145,12 @@ export const renderProductList = ({
           )
         })}
       </div>
-      <img
+      {productLayout.materialArrow && <img
         data-id={channelId}
         style={productLayout.materialArrow}
         src={productLayout.materialArrow.content}
       />
+      }
     </>
   )
 }

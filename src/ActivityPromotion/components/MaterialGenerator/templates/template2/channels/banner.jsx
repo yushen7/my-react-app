@@ -123,7 +123,7 @@ export const TopLayout = {
     width: '921px',
     height: '3.3px',
     content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/17/Fo7UE5unpOU03PiWj79At5_mtA90.png',
+      'https://img01.yzcdn.cn/upload_files/2025/04/02/FgJOq2IPnM_iwZ84xpvKsW-bIV2x.png',
   },
 }
 

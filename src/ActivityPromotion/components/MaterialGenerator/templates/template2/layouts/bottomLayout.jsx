@@ -5,23 +5,6 @@ export function renderBottomLayout({ processedStyle, channelId }) {
         className="materials-bottom"
         style={processedStyle.materialBottomContainer}
       >
-        <div style={processedStyle.qrCodeContainer}>
-          {processedStyle.materialQrDecoration && (
-            <img
-              data-id={channelId}
-              style={processedStyle.materialQrDecoration}
-              src={processedStyle.materialQrDecoration.content}
-              alt=""
-            />
-          )}
-          <img
-            data-id={channelId}
-            style={processedStyle.materialQrCode}
-            src={processedStyle.materialQrCode.content}
-            alt=""
-          />
-        </div>
-
         <img
           data-id={channelId}
           style={processedStyle.scanDecoration}
@@ -44,6 +27,23 @@ export function renderBottomLayout({ processedStyle, channelId }) {
           <div data-id={channelId} style={processedStyle.materialTips}>
             *本次活动最终解释权归活动方所有
           </div>
+        </div>
+
+        <div style={processedStyle.qrCodeContainer}>
+          {processedStyle.materialQrDecoration && (
+            <img
+              data-id={channelId}
+              style={processedStyle.materialQrDecoration}
+              src={processedStyle.materialQrDecoration.content}
+              alt=""
+            />
+          )}
+          <img
+            data-id={channelId}
+            style={processedStyle.materialQrCode}
+            src={processedStyle.materialQrCode.content}
+            alt=""
+          />
         </div>
       </div>
       <img

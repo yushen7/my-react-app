@@ -31,34 +31,11 @@ export const TopLayout = {
     width: '95.76%',
   },
   logoContainer: {
+    height: 50,
     width: '100%',
     display: 'flex',
     alignItems: 'center',
   },
-  // qrCodeContainer: {
-  //   display: 'flex',
-  //   alignItems: 'center',
-  //   position: 'relative',
-  //   width: '95.76%',
-  //   height: '4370px',
-  //   marginTop: '365px',
-  // },
-  // 顶部装饰条
-  // topMaterialDecorationBar: {
-  //   type: 'image',
-  //   width: '100%',
-  //   content:
-  //     'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
-  // },
-
-  // 左边logo图案
-  materialLogoLeft: {
-    type: 'image',
-    width: '14.5%',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/23/FvivJF0Dvju06FBbhe2PRe_n3E99.png',
-  },
-  // 物料标题：甜蜜开业季储值送现金
   materialTitle: {
     type: 'text',
     marginTop: '56px',
@@ -72,12 +49,11 @@ export const TopLayout = {
   // logo分割线
   materialLongDivide: {
     type: 'image',
-    width: '50.71%',
+    width: '67%',
     height: '5px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
-    marginLeft: '28px',
-    marginRight: '28px',
+    
   },
 
   // 右侧 logo 文字 {2025} Stored value activity
@@ -86,6 +62,10 @@ export const TopLayout = {
     fontSize: '50px',
     fontWeight: '400',
     lineHeight: '50px',
+    position: 'absolute',
+    right: 0,
+    position: 'absolute',
+    right: 0
   },
 
   materialWhiteDecorationBar: {
@@ -184,7 +164,26 @@ export const BottomLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
   },
+  bottomQrCodeDecoration: {
+    type: 'image',
+    width: '100%',
+    position: 'absolute',
+    content: 'https://img01.yzcdn.cn/upload_files/2025/04/03/FiM35vIB8XrqQfB1-xG93h47YH1X.png',
+    bottom: 64,
+    right: 56,
+    width: 492,
+    height: 492,
+  },
+  // 底部二维码
+  bottomQrCode: {
+    bottom: 64,
+    right: 56,
+    position: 'absolute',
+    width: 492,
+    height: 492,
+  },
 }
+
 
 const ProductLayout = {
   materialPriceSuffix: {
@@ -204,32 +203,34 @@ const ProductLayout = {
   },
   materialProductBackground: {
     type: 'image',
-    width: '102.5%',
     position: 'absolute',
-    top: '-16px',
-    left: '-36px',
+    left: 56,
+    top: 764,
+    width: 2368,
+    height: 2137,
     content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/31/FnQY1fJn5AD-P3SCUXZOVCwhWWAF.png',
+      'https://img01.yzcdn.cn/upload_files/2025/04/03/FiM35vIB8XrqQfB1-xG93h47YH1X.png',
   },
-  materialArrow: {
-    type: 'image',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/23/FriM7WLZQ7fXpzYcegjn6EQy62MA.png',
-    position: 'absolute',
-    bottom: '565px',
-    right: '112px',
-    zIndex: 2,
-    width: '174px',
-  },
+  // materialArrow: {
+  //   type: 'image',
+  //   content:
+  //     'https://img01.yzcdn.cn/upload_files/2025/03/23/FriM7WLZQ7fXpzYcegjn6EQy62MA.png',
+  //   position: 'absolute',
+  //   bottom: '565px',
+  //   right: '112px',
+  //   zIndex: 2,
+  //   width: '174px',
+  // },
 
   productsContainer: {
     marginTop: '46px',
   },
 
   productContainer1: {
-    position: 'relative',
-    height: '2137px',
-    paddingTop: '56px'
+    position: 'absolute',
+    top: 900,
+    left: 56,
+    paddingTop: 40
   },
   productTitle: {
     marginTop: '56px',

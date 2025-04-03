@@ -33,14 +33,17 @@ export const TopLayout = {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
+    height: 706
   },
   qrCodeContainer: {
     display: 'flex',
     alignItems: 'center',
     position: 'relative',
-    width: '95.76%',
-    height: '4370px',
+    width: '93%',
+    height: '4563px',
     marginTop: '365px',
+    marginLeft: '3.5%',
+    
   },
   // 顶部装饰条
   topMaterialDecorationBar: {
@@ -51,12 +54,12 @@ export const TopLayout = {
   },
 
   // 左边logo图案
-  materialLogoLeft: {
-    type: 'image',
-    width: '14.5%',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/23/FvivJF0Dvju06FBbhe2PRe_n3E99.png',
-  },
+  // materialLogoLeft: {
+  //   type: 'image',
+  //   width: '14.5%',
+  //   content:
+  //     'https://img01.yzcdn.cn/upload_files/2025/03/23/FvivJF0Dvju06FBbhe2PRe_n3E99.png',
+  // },
   // 物料标题：甜蜜开业季储值送现金
   materialTitle: {
     type: 'text',
@@ -71,12 +74,10 @@ export const TopLayout = {
   // logo分割线
   materialLongDivide: {
     type: 'image',
-    width: '50.71%',
+    width: '67%',
     height: '20px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
-    marginLeft: '160px',
-    marginRight: '160px',
   },
 
   // 右侧 logo 文字 {2025} Stored value activity
@@ -85,6 +86,8 @@ export const TopLayout = {
     fontSize: '190px',
     fontWeight: '400',
     lineHeight: '190px',
+    position: 'absolute',
+    right: '0'
   },
 
   materialWhiteDecorationBar: {
@@ -128,16 +131,6 @@ export const TopLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/FrT3I_IJkfiiioxXNFZSOb0xMRuE.png',
   },
-  qrCodeText: {
-    type: 'text',
-    fontSize: '300px',
-    position: 'absolute',
-    top: '200px',
-    textAlign: 'center',
-    color: '#000',
-    width: '100%',
-    content: '扫码参与更多惊喜',
-  }
 }
 
 export const BottomLayout = {
@@ -208,6 +201,16 @@ export const BottomLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
   },
+  qrCodeText: {
+    type: 'text',
+    fontSize: '300px',
+    position: 'absolute',
+    top: '200px',
+    textAlign: 'center',
+    color: '#000',
+    width: '100%',
+    content: '扫码参与更多惊喜',
+  },
 }
 
 const ProductLayout = {
@@ -228,12 +231,13 @@ const ProductLayout = {
   },
   materialProductBackground: {
     type: 'image',
-    width: '100%',
     position: 'absolute',
-    top: '-2%',
-    left: '0',
+    width: 9049,
+    height: 8256,
     content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/23/Fl6khYfuKhoT4IKQEbLaS6Cvqpes.png',
+      'https://img01.yzcdn.cn/upload_files/2025/04/03/FiM35vIB8XrqQfB1-xG93h47YH1X.png',
+    left: 200,
+    top: 9137
   },
   materialArrow: {
     type: 'image',
@@ -244,12 +248,14 @@ const ProductLayout = {
     right: '413px',
     zIndex: 2,
     width: '665px',
-    height: '924px'
+    height: '924px',
   },
 
   productContainer1: {
-    position: 'relative',
-    height: '8672px',
+    position: 'absolute',
+    top: 9137,
+    left: 200,
+    width: 9049,
   },
   productTitle: {
     marginLeft: '0',

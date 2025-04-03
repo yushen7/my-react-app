@@ -4,6 +4,7 @@ import { renderBottomLayout } from './layouts/bottomLayout'
 import { renderProductList } from './layouts/productLayout'
 import { renderTopLayout } from './layouts/topLayout'
 import MaterialChannelList from './channels'
+import { renderBannerExtra } from './channels/banner'
 
 function renderChannel({ channelId, processedStyle, data }) {
   const productList = data.rechargeList
@@ -58,6 +59,7 @@ function renderChannel({ channelId, processedStyle, data }) {
         <>
           {bgImg}
           {renderTopLayoutWithProps()}
+          {renderBannerExtra({ channelId })}
         </>
       )
     case MaterialChannel.cashierCard:

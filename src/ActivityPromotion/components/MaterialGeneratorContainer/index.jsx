@@ -81,7 +81,7 @@ async function handleUploadMaterial(value) {
   }
 }
 
-function fabricElements2HTML(fabricElements) {
+export function fabricElements2HTML(fabricElements) {
   let htmlString =
     '<style>div,img{position:absolute;}div{z-index:2; font-family: "HarmonyOS Sans SC";}img{z-index:1;} </style> <div class="material-container" style="position: relative;">'
 
@@ -172,6 +172,25 @@ const MaterialGeneratorContainer = ({
     },
     [materialImageInfo, selectedMaterials]
   )
+
+  const calculate = () => {
+    const promises = MaterialChannelList.map(channel => {
+      const calResult = calculateElementOffsets({
+        ratio: channel.posterRatio,
+        keepSize: true,
+        className: channel.id,
+      })
+      console.log(fabricElements2HTML(calResult), channel.id)
+      return calResult
+    })
+    return Promise.all(promises)
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      calculate()
+    }, 5000)
+  }, [])
 
   const batchGetPosters = () => {
     if (isView) {
@@ -345,6 +364,7 @@ const MaterialGeneratorContainer = ({
                     data={data}
                     template={activityPromotion.template}
                     channel={item.id}
+                    channelInfo={item}
                   />
                 </div>
                 {/* <div className="material-info">

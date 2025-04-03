@@ -172,7 +172,7 @@ export const ProductLayout = {
     top: '0',
     position: 'absolute',
     content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/17/FneEvpcghLF8Ny2kQdiiQTRIb__g.png',
+      'https://img01.yzcdn.cn/upload_files/2025/04/02/FvBP_xk9sD78f2jlX3joDUHPMior.png',
   },
 }
 

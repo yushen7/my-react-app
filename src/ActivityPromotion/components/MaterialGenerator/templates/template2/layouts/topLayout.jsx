@@ -3,10 +3,10 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
     <>
       <div className="material-top">
         <div className="material-logo">
-          <div
+          {/* <div
             data-id={channelId}
             style={processedStyle.materialLogoLeft}
-          ></div>
+          ></div> */}
           <img
             data-id={channelId}
             src={processedStyle.materialDecorationBar.content}

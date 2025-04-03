@@ -12,13 +12,13 @@ export const renderTopLayout = ({ channelId, processedStyle, data }) => {
 
       <div style={processedStyle.topContainer1}>
         <div style={processedStyle.logoContainer}>
-          {processedStyle.materialLogoLeft && (
+          {/* {data.logo && (
             <img
               data-id={channelId}
               style={processedStyle.materialLogoLeft}
               src={processedStyle.materialLogoLeft.content}
             />
-          )}
+          )} */}
 
           <img
             data-id={channelId}
@@ -70,7 +70,7 @@ export const renderTopLayout = ({ channelId, processedStyle, data }) => {
           <img
             data-id={channelId}
             style={processedStyle.materialQrCode}
-            src={processedStyle.materialQrCode.content}
+            src={data.qrCode}
             alt=""
           />
         </div>

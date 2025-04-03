@@ -277,6 +277,7 @@ export const ProductLayout = {
   productBackground: {
     type: 'image',
     // width: '93.86%',
+    width: '8870px',
     firstHeight: '3678px',
     height: '2932px',
     left: '0',

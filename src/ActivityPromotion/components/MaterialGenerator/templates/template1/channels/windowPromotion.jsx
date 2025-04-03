@@ -32,6 +32,7 @@ export const TopLayout = {
   logoContainer: {
     width: '100%',
     display: 'flex',
+    height: 107,
     alignItems: 'center',
   },
   // qrCodeContainer: {
@@ -51,12 +52,12 @@ export const TopLayout = {
   // },
 
   // 左边logo图案
-  materialLogoLeft: {
-    type: 'image',
-    width: '200px',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/23/FvivJF0Dvju06FBbhe2PRe_n3E99.png',
-  },
+  // materialLogoLeft: {
+  //   type: 'image',
+  //   width: '200px',
+  //   content:
+  //     'https://img01.yzcdn.cn/upload_files/2025/03/23/FvivJF0Dvju06FBbhe2PRe_n3E99.png',
+  // },
   // 物料标题：甜蜜开业季储值送现金
   materialTitle: {
     type: 'text',
@@ -71,7 +72,7 @@ export const TopLayout = {
   // logo分割线
   materialLongDivide: {
     type: 'image',
-    width: '663px',
+    width: '64%',
     height: '1px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
@@ -85,6 +86,8 @@ export const TopLayout = {
     fontSize: '30px',
     fontWeight: '400',
     lineHeight: '30px',
+        position: 'absolute',
+    right: '0'
   },
 
   materialWhiteDecorationBar: {
@@ -183,6 +186,24 @@ export const BottomLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
   },
+  bottomQrCodeDecoration: {
+    type: 'image',
+    width: '100%',
+    position: 'absolute',
+    content: 'https://img01.yzcdn.cn/upload_files/2025/04/03/FiM35vIB8XrqQfB1-xG93h47YH1X.png',
+    bottom: 48,
+    right: 48,
+    width: 226,
+    height: 226,
+  },
+  // 底部二维码
+  bottomQrCode: {
+    bottom: 48,
+    right: 48,
+    position: 'absolute',
+    width: 226,
+    height: 226,
+  },
 }
 
 const ProductLayout = {
@@ -203,13 +224,13 @@ const ProductLayout = {
   },
   materialProductBackground: {
     type: 'image',
-    width: '102.5%',
     position: 'absolute',
-    top: '-16px',
-    left: '-16px',
     content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/31/Fmvzvd55xOW71OFuUNfvcpyDk-G4.png',
-    height: '107%'
+      'https://img01.yzcdn.cn/upload_files/2025/04/03/FiM35vIB8XrqQfB1-xG93h47YH1X.png',
+    width: 1344,
+    height: 1264,
+    left: 48,
+    top: 587
   },
   materialArrow: {
     type: 'image',
@@ -222,15 +243,12 @@ const ProductLayout = {
     width: '101px',
   },
 
-  productsContainer: {
-    marginTop: '46px',
-  },
-
   productContainer1: {
-    position: 'relative',
-    height: '1264px',
-    paddingTop: '36px',
-    marginTop: 24,
+    position: 'absolute',
+    // height: '1264px',
+    left: 48,
+    top: 587,
+    paddingTop: 20,
   },
   productTitle: {
     marginTop: '36px',

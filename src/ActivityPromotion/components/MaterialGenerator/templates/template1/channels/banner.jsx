@@ -16,15 +16,16 @@ export const TopLayout = {
     width: '100%',
     display: 'flex',
     alignItems: 'center',
+    height: 107,
   },
 
   // 左边logo图案
-  materialLogoLeft: {
-    type: 'image',
-    width: '200px',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/23/FvivJF0Dvju06FBbhe2PRe_n3E99.png',
-  },
+  // materialLogoLeft: {
+  //   type: 'image',
+  //   width: '200px',
+  //   content:
+  //     'https://img01.yzcdn.cn/upload_files/2025/03/23/FvivJF0Dvju06FBbhe2PRe_n3E99.png',
+  // },
   // 物料标题：甜蜜开业季储值送现金
   materialTitle: {
     type: 'text',
@@ -39,12 +40,10 @@ export const TopLayout = {
   // logo分割线
   materialLongDivide: {
     type: 'image',
-    width: '800px',
+    width: '67%',
     height: '1px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
-    marginLeft: '16px',
-    marginRight: '16px',
   },
 
   // 右侧 logo 文字 {2025} Stored value activity
@@ -53,6 +52,8 @@ export const TopLayout = {
     fontSize: '30px',
     fontWeight: '400',
     lineHeight: '30px',
+    position: 'absolute',
+    right: 0
   },
 
   materialWhiteDecorationBar: {
@@ -98,20 +99,25 @@ export const TopLayout = {
   },
 }
 
-// export const renderExtra = ({
-//   coupons:
-// }) => {
-//   return (
-//     <div
-//       style={{
-//         position: 'absolute',
-//       }}
-//     >
-
-
-//     </div>
-//   )
-// }
+export const renderBannerExtra = ({ channelId }) => {
+  return (
+    <div
+      style={{
+        position: 'absolute',
+        top: 804,
+        left: 56,
+        zIndex: 2,
+        fontSize: '50px',
+        letterSpacing: '-1px',
+        textAlign: 'left',
+        color: '#20201A'
+      }}
+      data-id={channelId}
+    >
+      了解更多
+    </div>
+  )
+}
 
 export default {
   id: MaterialChannel.banner,
