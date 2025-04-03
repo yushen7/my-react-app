@@ -228,7 +228,7 @@ const ProductLayout = {
 
   productContainer1: {
     position: 'absolute',
-    top: 900,
+    top: 764,
     left: 56,
     paddingTop: 40
   },
