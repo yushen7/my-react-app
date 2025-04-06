@@ -20,18 +20,16 @@ const CouponLayout = {
 
 export const TopLayout = {
   materialTitleContainer: {
-    marginTop: 510,
+    marginTop: 1110,
     marginLeft: 300,
     marginRight: 300,
   },
   // 物料标题
   materialTitle: {
     type: 'text',
-    marginTop: '500px',
     fontSize: '900px',
-    fontWeight: '900px',
+    fontWeight: 900,
     lineHeight: '900px',
-    textAlign: 'center',
   },
   materialSubtitle: {
     marginTop: '400px',
@@ -39,30 +37,30 @@ export const TopLayout = {
   materialSubtitlePrefix: {
     type: 'text',
     fontSize: '400px',
-    lineHeight: '400px',
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
     left: 0,
+    lineHeight: '420px',
   },
   // 物料副标题 跟上这波车，拿下这福利!
   materialSubtitleContent: {
     type: 'text',
     fontSize: '400px',
-    lineHeight: '400px',
     textAlign: 'center',
     fontWeight: 900,
+    lineHeight: '420px',
   },
 
   materialSubtitleSuffix: {
     type: 'text',
     fontSize: '400px',
-    lineHeight: '400px',
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
     right: 0,
     top: 0,
+    lineHeight: '420px',
   },
 
   materialWhiteDecorationBar: {
@@ -138,12 +136,6 @@ export const TopLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
   },
-  materialDecorationBar: {
-    type: 'image',
-    width: '69.51%',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/17/FqMll1F7AE8flktEMVRACUHA0Tjv.png',
-  },
 }
 
 export const BottomLayout = {
@@ -174,8 +166,8 @@ export const BottomLayout = {
   // 二维码
   materialQrCode: {
     type: 'image',
-    width: '80px',
-    height: '80px',
+    width: '3000px',
+    height: '3000px',
     position: 'absolute',
     top: '660px',
     left: '650px',
@@ -321,6 +313,11 @@ export default {
     materialDecorationBar: {
       type: 'image',
       width: '69.51%',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      content:
+        'https://img01.yzcdn.cn/upload_files/2025/03/17/FqMll1F7AE8flktEMVRACUHA0Tjv.png',
     },
     ...BottomLayout,
     ...CouponLayout,

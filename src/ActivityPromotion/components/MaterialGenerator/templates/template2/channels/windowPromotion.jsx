@@ -27,7 +27,7 @@ const CouponLayout = {
 
 export const TopLayout = {
   materialTitleContainer: {
-    marginTop: 48,
+    marginTop: 140,
     marginLeft: 46,
     marginRight: 46,
   },
@@ -37,7 +37,6 @@ export const TopLayout = {
     fontSize: TitleFontSize,
     lineHeight: TitleFontSize,
     fontWeight: '900',
-    textAlign: 'center',
   },
   materialSubtitle: {
     marginTop: '12px',
@@ -45,30 +44,30 @@ export const TopLayout = {
   materialSubtitlePrefix: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
     left: 0,
+    lineHeight: '64px',
   },
   // 物料副标题 跟上这波车，拿下这福利!
   materialSubtitleContent: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
+    lineHeight: '64px',
   },
 
   materialSubtitleSuffix: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
     right: 0,
     top: 0,
+    lineHeight: '64px',
   },
 
   materialWhiteDecorationBar: {
@@ -142,12 +141,6 @@ export const TopLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
   },
-  materialDecorationBar: {
-    type: 'image',
-    width: '69.51%',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/17/FqMll1F7AE8flktEMVRACUHA0Tjv.png',
-  },
 }
 
 export const ProductLayout = {
@@ -207,6 +200,11 @@ export default {
     materialDecorationBar: {
       type: 'image',
       width: '69.51%',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      content:
+        'https://img01.yzcdn.cn/upload_files/2025/03/17/FqMll1F7AE8flktEMVRACUHA0Tjv.png',
     },
     ...CouponLayout,
     ...TopLayout,

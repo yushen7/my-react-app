@@ -15,7 +15,11 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
         </div>
 
         <div style={processedStyle.materialTitleContainer}>
-          <div data-align="center" data-id={channelId} style={processedStyle.materialTitle}>
+          <div
+            data-align="center"
+            data-id={channelId}
+            style={{ textAlign: 'left', ...processedStyle.materialTitle }}
+          >
             {data.title}
           </div>
           <div style={processedStyle.materialSubtitle}>
@@ -95,10 +99,17 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
               />
             </div>
             <div data-id={channelId} style={processedStyle.materialTimeDate}>
-              TIME <div style={{
-                display: 'inline-block',
-                margin: '0 2.2%'
-              }}>  &gt; </div>{data.monthDate}
+              TIME{' '}
+              <div
+                style={{
+                  display: 'inline-block',
+                  margin: '0 2.2%',
+                }}
+              >
+                {' '}
+                &gt;{' '}
+              </div>
+              {data.monthDate}
             </div>
           </div>
         </div>

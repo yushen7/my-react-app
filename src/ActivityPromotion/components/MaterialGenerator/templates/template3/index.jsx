@@ -17,63 +17,60 @@ function renderChannel({ channelId, processedStyle, data }) {
       className="background"
     />
   )
+  const renderBottomLayoutWithProps = () => {
+    return renderBottomLayout({ processedStyle, channelId, data })
+  }
+  const renderProductListWithProps = () => {
+    return renderProductList({
+      processedStyle,
+      channelId,
+      productList: rechargeList,
+    })
+  }
+  const renderTopLayoutWithProps = () => {
+    return renderTopLayout({ processedStyle, channelId, data })
+  }
   switch (channelId) {
     case MaterialChannel.ylb:
       return (
         <>
           {bgImg}
-          {renderTopLayout({ processedStyle, channelId, data })}
-          {renderProductList({
-            processedStyle,
-            channelId,
-            productList: rechargeList,
-          })}
-          {renderBottomLayout({ processedStyle, channelId })}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
         </>
       )
     case MaterialChannel.windowPromotion:
       return (
         <>
           {bgImg}
-          {renderTopLayout({ processedStyle, channelId, data })}
-          {renderProductList({
-            processedStyle,
-            channelId,
-            productList: rechargeList,
-          })}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
         </>
       )
     case MaterialChannel.banner:
       return (
         <>
           {bgImg}
-          {renderTopLayout({ processedStyle, channelId, data })}
+          {renderTopLayoutWithProps()}
         </>
       )
     case MaterialChannel.cashierCard:
       return (
         <>
           {bgImg}
-          {renderTopLayout({ processedStyle, channelId, data })}
-          {renderProductList({
-            processedStyle,
-            channelId,
-            productList: rechargeList,
-          })}
-          {renderBottomLayout({ processedStyle, channelId })}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
         </>
       )
     case MaterialChannel.friendCircle:
       return (
         <>
           {bgImg}
-          {renderTopLayout({ processedStyle, channelId, data })}
-          {renderProductList({
-            processedStyle,
-            channelId,
-            productList: rechargeList,
-          })}
-          {renderBottomLayout({ processedStyle, channelId })}
+          {renderTopLayoutWithProps()}
+          {renderProductListWithProps()}
+          {renderBottomLayoutWithProps()}
         </>
       )
     default:
@@ -96,7 +93,6 @@ export default function TemplateThree({ data, channel: channelProps }) {
     <div
       style={{
         transformOrigin: 'top left',
-        opacity: 0,
         position: 'absolute',
       }}
     >

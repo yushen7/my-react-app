@@ -39,8 +39,8 @@ export const TopLayout = {
     fontSize: '900px',
     fontWeight: '900',
     lineHeight: '900px',
-    textAlign: 'center',
     content: '甜蜜开业季储值送现金',
+    textAlign: 'center'
   },
 
   //具体开始时间 "2025.11.11"
@@ -56,6 +56,8 @@ export const TopLayout = {
     type: 'image',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/24/Fp05i5-wAN00Lq0H4NvWybAjtq4_.png',
+    marginLeft: 100,
+    marginRight: 100
   },
   //具体时间 "11.21"
   materialTimeDateEnd: {
@@ -75,8 +77,8 @@ export const TopLayout = {
   },
   // 最外层的 container
   container1: {
-    margin: '200px 200px 0 200px',
-    width: '95.76%',
+    marginTop: 1125,
+    marginLeft: 224
   },
 }
 

@@ -1,12 +1,15 @@
-export function renderBottomLayout({ processedStyle, channelId }) {
+export function renderBottomLayout({ processedStyle, channelId, data }) {
   return (
     <div className="materials-bottom" style={processedStyle.bottomContainer}>
-      <img
-        data-id={channelId}
-        style={processedStyle.materialQrcode}
-        src={processedStyle.materialQrcode.content}
-        alt=""
-      />
+      {data.qrCode && processedStyle.materialQrcode && (
+        <img
+          data-id={channelId}
+          style={processedStyle.materialQrcode}
+          src={data.qrCode}
+          alt=""
+        />
+      )}
+
       <div style={processedStyle.scanTextContainer}>
         <div data-id={channelId} style={processedStyle.materialScanText1}>
           扫码参与

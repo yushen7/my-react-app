@@ -9,7 +9,7 @@ const TimeLabelFontSize = '51px'
 
 export const TopLayout = {
   materialTitleContainer: {
-    marginTop: '102px',
+    marginTop: '203px',
     marginLeft: '32px',
     marginRight: '32px',
   },
@@ -19,7 +19,6 @@ export const TopLayout = {
     fontSize: TitleFontSize,
     fontWeight: 900,
     lineHeight: TitleFontSize,
-    textAlign: 'center',
   },
   materialSubtitle: {
     marginTop: '32px',
@@ -27,30 +26,30 @@ export const TopLayout = {
   materialSubtitlePrefix: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
     left: 0,
+    lineHeight: '72px',
   },
   // 物料副标题 跟上这波车，拿下这福利!
   materialSubtitleContent: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
+    lineHeight: '72px',
   },
 
   materialSubtitleSuffix: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
     right: 0,
     top: 0,
+    lineHeight: '72px',
   },
 
   materialWhiteDecorationBar: {
@@ -62,8 +61,8 @@ export const TopLayout = {
       'https://img01.yzcdn.cn/upload_files/2025/03/17/FhOYStbZOvldoAkCRIeeGUnF26Wt.png',
   },
   materialTime: {
-    marginTop: 32
-  },  
+    marginTop: 32,
+  },
   // 活动时间
   materialTimeLabel: {
     type: 'text',
@@ -152,6 +151,8 @@ export default {
     materialDecorationBar: {
       type: 'image',
       width: '69.51%',
+      position: 'absolute',
+      right: 0,
       content:
         'https://img01.yzcdn.cn/upload_files/2025/03/17/FqMll1F7AE8flktEMVRACUHA0Tjv.png',
     },

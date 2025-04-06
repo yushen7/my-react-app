@@ -27,7 +27,7 @@ const CouponLayout = {
 
 export const TopLayout = {
   materialTitleContainer: {
-    marginTop: 68,
+    marginTop: 225,
     marginLeft: 54,
     marginRight: 54,
   },
@@ -36,8 +36,7 @@ export const TopLayout = {
     type: 'text',
     fontSize: TitleFontSize,
     lineHeight: TitleFontSize,
-    fontWeight: '900',
-    textAlign: 'center',
+    fontWeight: 900,
   },
   materialSubtitle: {
     marginTop: '12px',
@@ -45,30 +44,30 @@ export const TopLayout = {
   materialSubtitlePrefix: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
     left: 0,
+    lineHeight: '112px',
   },
   // 物料副标题 跟上这波车，拿下这福利!
   materialSubtitleContent: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
+    lineHeight: '112px',
   },
 
   materialSubtitleSuffix: {
     type: 'text',
     fontSize: SubtitleFontSize,
-    lineHeight: SubtitleFontSize,
     textAlign: 'center',
     fontWeight: 900,
     position: 'absolute',
     right: 0,
     top: 0,
+    lineHeight: '112px',
   },
 
   materialWhiteDecorationBar: {
@@ -141,12 +140,6 @@ export const TopLayout = {
     height: '5px',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
-  },
-  materialDecorationBar: {
-    type: 'image',
-    width: '69.51%',
-    content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/17/FqMll1F7AE8flktEMVRACUHA0Tjv.png',
   },
 }
 
@@ -232,15 +225,6 @@ export const BottomLayout = {
     bottom: 0,
     zIndex: 2,
   },
-  // // 二维码
-  // materialQrCode: {
-  //   type: 'image',
-  //   width: '80px',
-  //   height: '80px',
-  //   position: 'absolute',
-  //   top: '660px',
-  //   left: '650px',
-  // },
 
   // qrcode
   materialQrCode: {
@@ -248,6 +232,8 @@ export const BottomLayout = {
     position: 'absolute',
     top: '0',
     left: '0',
+    width: '653px',
+    height: '653px',
   },
   // 底部装饰
   scanDecoration: {
@@ -303,6 +289,7 @@ export const renderExtra = ({ channelId }) => {
           height: 653,
           zIndex: 2,
         }}
+        src="https://img01.yzcdn.cn/upload_files/2025/03/30/FvzceK5uJ2TE9Ym42AHp4FFJHXTu.png"
       ></img>
 
       <img
@@ -363,6 +350,11 @@ export default {
     materialDecorationBar: {
       type: 'image',
       width: '69.51%',
+      position: 'absolute',
+      right: 0,
+      top: 0,
+      content:
+        'https://img01.yzcdn.cn/upload_files/2025/03/17/FqMll1F7AE8flktEMVRACUHA0Tjv.png',
     },
     ...CouponLayout,
     ...TopLayout,

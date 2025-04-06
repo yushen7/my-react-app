@@ -38,7 +38,7 @@ function renderChannel({ channelId, processedStyle, data }) {
   }
 
   const renderBottomLayoutWithProps = () => {
-    return renderBottomLayout({ processedStyle, channelId })
+    return renderBottomLayout({ processedStyle, channelId, data })
   }
 
   switch (channelId) {
