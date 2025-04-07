@@ -186,11 +186,11 @@ export const BottomLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
   },
-  bottomQrCodeDecoration: {
+  qrCodeDecoration: {
     type: 'image',
     width: '100%',
     position: 'absolute',
-    content: 'https://img01.yzcdn.cn/upload_files/2025/04/03/FiM35vIB8XrqQfB1-xG93h47YH1X.png',
+    content: 'https://img01.yzcdn.cn/upload_files/2025/04/07/Fk8AELUNEFIzOvQSHbByWV12KykD.png',
     bottom: 48,
     right: 48,
     width: 226,
@@ -217,7 +217,7 @@ const ProductLayout = {
   // 分割线
   materialProductDivide: {
     type: 'image',
-    width: '81%',
+    width: '87%',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/FnZfiRP5kn1KYF8ncAa9Y_cBzymN.png',
     marginTop: '36px',
@@ -245,7 +245,6 @@ const ProductLayout = {
 
   productContainer1: {
     position: 'absolute',
-    // height: '1264px',
     left: 48,
     top: 587,
     paddingTop: 20,

@@ -31,7 +31,7 @@ export const TopLayout = {
     width: '95.76%',
   },
   logoContainer: {
-    height: 185,
+    height: 50,
     width: '100%',
     display: 'flex',
     alignItems: 'center',
@@ -49,10 +49,9 @@ export const TopLayout = {
   // logo分割线
   materialLongDivide: {
     type: 'image',
-    width: '67%',
-    height: '5px',
+    width: '87%',
     content:
-      'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
+      'https://img01.yzcdn.cn/upload_files/2025/03/23/FnZfiRP5kn1KYF8ncAa9Y_cBzymN.png',
     
   },
 
@@ -164,11 +163,11 @@ export const BottomLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/19/FpyjH9o6oOSbZDT_IgrQhO7Q6rEs.png',
   },
-  bottomQrCodeDecoration: {
+  qrCodeDecoration: {
     type: 'image',
     width: '100%',
     position: 'absolute',
-    content: 'https://img01.yzcdn.cn/upload_files/2025/04/03/FiM35vIB8XrqQfB1-xG93h47YH1X.png',
+    content: 'https://img01.yzcdn.cn/upload_files/2025/04/07/Fk8AELUNEFIzOvQSHbByWV12KykD.png',
     bottom: 64,
     right: 56,
     width: 492,
@@ -196,10 +195,12 @@ const ProductLayout = {
   // 分割线
   materialProductDivide: {
     type: 'image',
-    width: '60%',
+    width: '92%',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/FnZfiRP5kn1KYF8ncAa9Y_cBzymN.png',
     marginTop: '2.5%',
+    height: '2px'
+
   },
   materialProductBackground: {
     type: 'image',

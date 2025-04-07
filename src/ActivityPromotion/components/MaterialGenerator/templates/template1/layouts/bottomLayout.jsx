@@ -31,11 +31,11 @@ export function renderBottomLayout({ processedStyle, channelId, data }) {
         </div>
       </div>
       {
-        processedStyle.bottomQrCodeDecoration && (
+f        processedStyle.qrCodeDecoration && (
           <img
             data-id={channelId}
-            style={processedStyle.bottomQrCodeDecoration}
-            src={processedStyle.bottomQrCodeDecoration.content}
+            style={processedStyle.qrCodeDecoration}
+            src={processedStyle.qrCodeDecoration.content}
             />
         )
       }
