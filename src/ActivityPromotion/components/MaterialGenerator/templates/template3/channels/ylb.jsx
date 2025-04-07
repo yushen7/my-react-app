@@ -40,7 +40,6 @@ export const TopLayout = {
     fontWeight: '900',
     lineHeight: '900px',
     content: '甜蜜开业季储值送现金',
-    textAlign: 'center'
   },
 
   //具体开始时间 "2025.11.11"
@@ -57,7 +56,7 @@ export const TopLayout = {
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/24/Fp05i5-wAN00Lq0H4NvWybAjtq4_.png',
     marginLeft: 100,
-    marginRight: 100
+    marginRight: 100,
   },
   //具体时间 "11.21"
   materialTimeDateEnd: {
@@ -74,13 +73,13 @@ export const TopLayout = {
       'https://img01.yzcdn.cn/upload_files/2025/03/24/Fh2nX8kZNNbCWEyTCed70fPPTZRq.png',
     width: '800px',
     height: '800px',
-    marginLeft: 100
+    marginLeft: 100,
   },
   // 最外层的 container
   container1: {
     marginTop: 1125,
     marginLeft: 224,
-    textAlign: 'left'
+    textAlign: 'left',
   },
 }
 
@@ -109,14 +108,26 @@ export const BottomLayout = {
     lineHeight: '200px',
     marginTop: '1.5%',
   },
-  materialQrcode: {
+  qrCodeDecoration: {
+    type: 'image',
+    width: '100%',
+    position: 'absolute',
+    content:
+      'https://img01.yzcdn.cn/upload_files/2025/04/07/Fk8AELUNEFIzOvQSHbByWV12KykD.png',
+    bottom: 588,
+    left: 300,
+    width: 3000,
+    height: 3000,
+  },
+  materialQrCode: {
     type: 'image',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/Fo4F1M1ez5njdBxUxEzQg8EBR5Oy.png',
-    width: '3000px',
-    height: '3000px',
-    marginTop: '7%',
-    marginLeft: '3%',
+      bottom: 588,
+      left: 300,
+    width: 3000,
+    height: 3000,
+    position: 'absolute',
   },
   bottomContainer: {
     position: 'absolute',
@@ -127,7 +138,7 @@ export const BottomLayout = {
     textAlign: 'start',
   },
   scanTextContainer: {
-    marginLeft: '400px',
+    marginLeft: '3700px',
     marginTop: '2200px',
     position: 'relative',
   },

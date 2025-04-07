@@ -24,8 +24,8 @@ const CouponLayout = {
 const ProductLayout = {
   productsContainer: {
     marginTop: '120px',
-    marginLeft: '120px',
-    marginRight: '120px',
+    marginLeft: '110px',
+    marginRight: '110px',
   },
   productContainer: {
     marginTop: '68px',
@@ -45,7 +45,6 @@ export const TopLayout = {
     fontWeight: '900',
     lineHeight: TitleFontSize,
     content: '甜蜜开业季储值送现金',
-    textAlign: 'center',
   },
 
   //具体开始时间 "2025.11.11"
@@ -85,9 +84,8 @@ export const TopLayout = {
   },
   // 最外层的 container
   container1: {
-    textAlign: 'center',
-    width: '95.76%',
-    textAlign: 'left'
+    textAlign: 'left',
+    marginLeft: 56
   },
 }
 

@@ -44,7 +44,6 @@ export const TopLayout = {
     fontWeight: '900',
     lineHeight: TitleFontSize,
     content: '甜蜜开业季储值送现金',
-    textAlign: 'center',
   },
 
   //具体开始时间 "2025.11.11"
@@ -84,9 +83,8 @@ export const TopLayout = {
   },
   // 最外层的 container
   container1: {
-    textAlign: 'center',
-    width: '95.76%',
-    textAlign: 'left'
+    textAlign: 'left',
+    marginLeft: 140
   },
 }
 
@@ -115,13 +113,26 @@ export const BottomLayout = {
     lineHeight: '48px',
     marginTop: '1.5%',
   },
-  materialQrcode: {
+  qrCodeDecoration: {
+    type: 'image',
+    width: '100%',
+    position: 'absolute',
+    content:
+      'https://img01.yzcdn.cn/upload_files/2025/04/07/Fk8AELUNEFIzOvQSHbByWV12KykD.png',
+    bottom: 52,
+    left: 158,
+    width: 700,
+    height: 700,
+  },
+  materialQrCode: {
     type: 'image',
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/23/Fo4F1M1ez5njdBxUxEzQg8EBR5Oy.png',
+    left: 158,
     width: 700,
     height: 700,
-    marginLeft: 156,
+    position: 'absolute',
+    bottom: 52,
   },
   bottomContainer: {
     position: 'absolute',
@@ -132,7 +143,7 @@ export const BottomLayout = {
     textAlign: 'start',
   },
   scanTextContainer: {
-    marginLeft: 80,
+    marginLeft: 936,
     marginTop: 380,
     position: 'relative',
   },
