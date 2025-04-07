@@ -5,26 +5,11 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
       style={{ color: '#20201A', ...processedStyle.container1 }}
     >
       {/** 标题 */}
-      <div
-        data-align={
-          processedStyle.materialTitle.textAlign === 'center'
-            ? 'center'
-            : 'left'
-        }
-        data-id={channelId}
-        style={processedStyle.materialTitle}
-      >
+      <div data-id={channelId} style={processedStyle.materialTitle}>
         {data.title}
       </div>
 
-      <div
-        data-align={
-          processedStyle.materialTimeDate?.textAlign === 'center'
-            ? 'center'
-            : 'left'
-        }
-        style={processedStyle.materialTimeDate}
-      >
+      <div style={processedStyle.materialTimeDate}>
         {/** 时间 */}
         <div data-id={channelId} style={processedStyle.materialTimeDateStart}>
           {data.startDate}

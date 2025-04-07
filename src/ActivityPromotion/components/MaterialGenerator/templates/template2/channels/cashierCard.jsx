@@ -225,16 +225,6 @@ export const BottomLayout = {
     bottom: 0,
     zIndex: 2,
   },
-
-  // qrcode
-  materialQrCode: {
-    type: 'image',
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    width: '653px',
-    height: '653px',
-  },
   // 底部装饰
   scanDecoration: {
     type: 'image',
@@ -243,20 +233,6 @@ export const BottomLayout = {
       'https://img01.yzcdn.cn/upload_files/2025/03/19/FsemU_caSE_YDxn9xCC6cLhHlt5u.png',
   },
 
-  materialQrcode: {
-    type: 'image',
-    width: '80px',
-    height: '80px',
-    position: 'absolute',
-    top: '660px',
-    left: '650px',
-  },
-  // materialQrDecoration: {
-  //   type: 'image',
-  //   content:
-  //     'https://img01.yzcdn.cn/upload_files/2025/03/19/FvwjDuPmalUvBAWGa-VpWk-Flysj.png',
-
-  // },
   materialBlackBackground: {
     type: 'image',
     position: 'absolute',
@@ -268,7 +244,7 @@ export const BottomLayout = {
   },
 }
 
-export const renderExtra = ({ channelId }) => {
+export const renderExtra = ({ channelId, data }) => {
   return (
     <>
       <img
@@ -289,7 +265,8 @@ export const renderExtra = ({ channelId }) => {
           height: 653,
           zIndex: 2,
         }}
-        src="https://img01.yzcdn.cn/upload_files/2025/03/30/FvzceK5uJ2TE9Ym42AHp4FFJHXTu.png"
+        data-id={channelId}
+        src={data.qrCode}
       ></img>
 
       <img

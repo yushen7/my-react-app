@@ -150,7 +150,8 @@ export const ProductLayout = {
     marginTop: 45,
   },
   productContainer: {
-    marginTop: '16px',
+    marginTop: 16,
+    noCouponTop: 68,
     display: 'flex',
     justifyContent: 'center',
   },

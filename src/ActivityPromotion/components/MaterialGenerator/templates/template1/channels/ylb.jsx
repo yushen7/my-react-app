@@ -259,12 +259,14 @@ const ProductLayout = {
   },
   productTitle: {
     marginLeft: '0',
-    marginTop: '373px',
+    marginTop: 373,
+    noCouponTop: 810,
     alignItems: 'end',
   },
   product: {
     marginTop: '0',
     marginLeft: '6.37%',
+    marginRight: '6.37%',
     position: 'relative',
   },
 }

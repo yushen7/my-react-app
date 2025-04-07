@@ -1,5 +1,4 @@
 export function renderBottomLayout({ processedStyle, channelId, data }) {
-  console.log('processedStyle', processedStyle.materialScanTextBackground)
   return (
     <>
       <div style={processedStyle.bottomContainer}>

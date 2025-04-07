@@ -253,10 +253,13 @@ const ProductLayout = {
   productTitle: {
     marginTop: '36px',
     alignItems: 'end',
+    // 没有优惠券的时候
+    noCouponTop: 115
   },
   product: {
     marginTop: '0',
     marginLeft: '80px',
+    marginRight: '80px',
     position: 'relative',
   },
 }

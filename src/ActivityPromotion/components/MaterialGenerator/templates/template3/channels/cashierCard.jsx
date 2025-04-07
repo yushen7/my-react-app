@@ -86,6 +86,7 @@ export const TopLayout = {
   container1: {
     textAlign: 'center',
     width: '95.76%',
+    textAlign: 'left'
   },
 }
 

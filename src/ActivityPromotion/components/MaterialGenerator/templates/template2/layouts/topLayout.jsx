@@ -16,7 +16,6 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
 
         <div style={processedStyle.materialTitleContainer}>
           <div
-            data-align="center"
             data-id={channelId}
             style={{ textAlign: 'left', ...processedStyle.materialTitle }}
           >

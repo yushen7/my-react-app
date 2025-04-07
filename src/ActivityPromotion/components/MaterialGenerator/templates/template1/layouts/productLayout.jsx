@@ -1,5 +1,6 @@
 import { processCommonStyle, processScale } from '../../../utils'
 import { renderCouponLayout } from '../../common/couponLayout'
+import { getProductTitleTop } from '../../common/productLayout'
 
 const getProductLayout = (
   productList,
@@ -86,7 +87,17 @@ export const renderProductList = ({
               className="material-product"
               style={productLayout.product}
             >
-              <div className="product-title" style={productLayout.productTitle}>
+              <div
+                className="product-title"
+                style={{
+                  ...productLayout.productTitle,
+                  ...getProductTitleTop({
+                    container: productLayout.productTitle,
+                    index,
+                    productList
+                  }),
+                }}
+              >
                 <div
                   data-id={channelId}
                   data-fabric={`充
@@ -145,12 +156,13 @@ export const renderProductList = ({
           )
         })}
       </div>
-      {productLayout.materialArrow && <img
-        data-id={channelId}
-        style={productLayout.materialArrow}
-        src={productLayout.materialArrow.content}
-      />
-      }
+      {productLayout.materialArrow && (
+        <img
+          data-id={channelId}
+          style={productLayout.materialArrow}
+          src={productLayout.materialArrow.content}
+        />
+      )}
     </>
   )
 }

@@ -10,7 +10,7 @@ const planData = {
   activityTitle: '春分储值活动方案',
   reportDate: '2025-03-25',
   activityDate: ['2025-04-03 00:00:00', '2025-04-10 23:59:59'],
-  activityName: '春分储值有礼',
+  activityName: '春分储值有礼11',
   rechargeList: [
     {
       amount: 100,
@@ -127,6 +127,7 @@ const planData = {
       ],
     },
   ],
+  rechargeList: [],
   marketingPlan: {
     crowdName: '过去参与过储值活动的客户',
     crowdJson: null,
@@ -152,7 +153,7 @@ const planData = {
 
 function App() {
   const setActivityPlanData = data => {
-    console.log(data)
+    // console.log(data)
   }
   const { ActivityPromotion, setGenerationStatus, selectedMaterials } =
     useActivityPromotion({

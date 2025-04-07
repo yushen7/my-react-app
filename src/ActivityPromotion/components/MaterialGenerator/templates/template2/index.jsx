@@ -75,7 +75,7 @@ function renderChannel({ channelId, processedStyle, data }) {
           {renderTopLayoutWithProps()}
           {renderProductListWithProps()}
           {renderBottomLayoutWithProps()}
-          {renderExtra({ channelId })}
+          {renderExtra({ channelId, data })}
         </>
       )
     case MaterialChannel.friendCircle:
@@ -85,7 +85,7 @@ function renderChannel({ channelId, processedStyle, data }) {
           {renderTopLayoutWithProps()}
           {renderProductListWithProps()}
           {renderBottomLayoutWithProps()}
-          {renderExtra({ channelId })}
+          {renderExtra({ channelId, data })}
         </>
       )
     default:

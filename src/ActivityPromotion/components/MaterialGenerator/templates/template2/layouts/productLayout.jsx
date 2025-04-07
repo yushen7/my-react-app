@@ -1,5 +1,6 @@
 import { processCommonStyle } from '../../../utils'
 import { renderCouponLayout } from '../../common/couponLayout'
+import { getProductTitleTop } from '../../common/productLayout'
 
 const getProductLayout = (productList, { largeFontSize, normalFontSize }) => {
   return processCommonStyle({
@@ -73,19 +74,6 @@ const getProductLayout = (productList, { largeFontSize, normalFontSize }) => {
   })
 }
 
-// 计算档位 title 的偏移量，设计师要求，为了保证视觉居中，需要计算 marginTop：
-// 1. 有送礼包的优惠券数据时，偏上一点，经过手动计算，应该是 3%
-// 2. 没有送礼包的优惠券数据时，偏下一点，应该是 6%
-// 3. 如果是第一个档位（大的背景图），且有送礼包的优惠券数据时marginTop 需要...
-// 4. 如果是第一个档位（大的背景图），且无送礼包的优惠券数据时，marginTop 需要
-const calculateMarginTop = (hasCoupon, isFirst) => {
-  if (hasCoupon) {
-    return isFirst ? '12%' : '5%'
-  } else {
-    return isFirst ? '15%' : '6%'
-  }
-}
-
 export const renderProductList = ({
   channelId,
   processedStyle,
@@ -104,16 +92,16 @@ export const renderProductList = ({
             style={{
               position: 'relative',
               ...productContainer,
+              ...getProductTitleTop({
+                container: productContainer,
+                index,
+                productList,
+              }),
               width: productBackground.width,
               height:
                 index === 0
                   ? productBackground.firstHeight || productBackground.height
                   : productBackground.height,
-              marginTop:
-                index === 0
-                  ? productContainer.firstMarginTop ||
-                    productContainer.marginTop
-                  : productContainer.marginTop,
             }}
           >
             <img

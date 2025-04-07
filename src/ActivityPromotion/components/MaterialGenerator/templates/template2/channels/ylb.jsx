@@ -169,8 +169,8 @@ export const BottomLayout = {
     width: '3000px',
     height: '3000px',
     position: 'absolute',
-    top: '660px',
-    left: '650px',
+    top: '0',
+    left: '0',
   },
   materialScanTextContainer: {
     marginLeft: '200px',
@@ -202,13 +202,6 @@ export const BottomLayout = {
     color: '#fff',
     marginTop: '100px',
   },
-  // qrcode
-  materialQrCode: {
-    type: 'image',
-    position: 'absolute',
-    top: '0',
-    left: '0',
-  },
   // 底部装饰
   scanDecoration: {
     type: 'image',
@@ -225,14 +218,6 @@ export const BottomLayout = {
     position: 'absolute',
     bottom: '0',
     left: 0,
-  },
-  materialQrcode: {
-    type: 'image',
-    width: '80px',
-    height: '80px',
-    position: 'absolute',
-    top: '660px',
-    left: '650px',
   },
   materialQrDecoration: {
     type: 'image',
@@ -256,9 +241,9 @@ export const ProductLayout = {
     marginLeft: 300,
   },
   productTitle: {
-    marginLeft: 626,
+    marginLeft: 500,
     // marginTop: 345,
-    firstMarginTop: 800
+    firstMarginTop: 800,
   },
   productContainer: {
     firstMarginTop: '-360px',
@@ -287,7 +272,7 @@ export default {
 
   layouts: {
     sizeInfo: {
-      largeFontSize: '1706px',
+      largeFontSize: '1500px',
       normalFontSize: '680px',
       smallFontSize: '386px',
       miniFontSize: '256px',

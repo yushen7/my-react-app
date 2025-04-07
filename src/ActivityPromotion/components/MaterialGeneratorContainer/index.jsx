@@ -180,7 +180,7 @@ const MaterialGeneratorContainer = ({
         keepSize: true,
         className: channel.id,
       })
-      console.log(fabricElements2HTML(calResult), channel.id)
+      // console.log(fabricElements2HTML(calResult), channel.id)
       return calResult
     })
     return Promise.all(promises)
@@ -203,8 +203,8 @@ const MaterialGeneratorContainer = ({
         className: channel.id,
       })
 
-      console.log(fabricElements2HTML(calResult))
-      console.log(channel, 'channel')
+      // console.log(fabricElements2HTML(calResult))
+      // console.log(channel, 'channel')
 
       return getPoster({
         elements: JSON.stringify(calResult),

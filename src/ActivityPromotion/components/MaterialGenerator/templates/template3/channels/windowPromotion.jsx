@@ -24,7 +24,8 @@ const CouponLayout = {
 const ProductLayout = {
   productsContainer: {
     marginTop: '120px',
-    marginLeft: '168px',
+    marginLeft: '120px',
+    marginRight: '120px',
   },
   productContainer: {
     marginTop: '68px',
@@ -86,6 +87,7 @@ export const TopLayout = {
   container1: {
     textAlign: 'center',
     width: '95.76%',
+    textAlign: 'left'
   },
 }
 
@@ -93,7 +95,7 @@ export default {
   id: MaterialChannel.windowPromotion,
   layouts: {
     sizeInfo: {
-      largeFontSize: '250px',
+      largeFontSize: '230px',
       normalFontSize: '100px',
       smallFontSize: '56px',
       miniFontSize: '38px',

@@ -38,12 +38,14 @@ export function renderBottomLayout({ processedStyle, channelId, data }) {
               alt=""
             />
           )}
-          <img
-            data-id={channelId}
-            style={processedStyle.materialQrCode}
-            src={data.qrCode}
-            alt=""
-          />
+          {data.qrCode && processedStyle.materialQrCode && (
+            <img
+              data-id={channelId}
+              style={processedStyle.materialQrCode}
+              src={data.qrCode}
+              alt=""
+            />
+          )}
         </div>
       </div>
       <img

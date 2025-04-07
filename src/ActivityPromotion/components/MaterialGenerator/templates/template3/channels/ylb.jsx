@@ -3,7 +3,6 @@ import { MaterialChannel } from '../../../../../constant'
 
 const CouponLayout = {
   productSubtitle: {
-    marginLeft: 636,
     marginTop: '1.5%',
     gap: '100px',
   },
@@ -16,13 +15,14 @@ const CouponLayout = {
     color: '#FBEF02',
     fontSize: '200px',
     lineHeight: '200px',
+    marginLeft: '100px',
   },
 }
 
 const ProductLayout = {
   productsContainer: {
     marginTop: 2334,
-    marginLeft: 1034,
+    marginLeft: 800,
   },
   productContainer: {
     marginTop: 580,
@@ -74,11 +74,13 @@ export const TopLayout = {
       'https://img01.yzcdn.cn/upload_files/2025/03/24/Fh2nX8kZNNbCWEyTCed70fPPTZRq.png',
     width: '800px',
     height: '800px',
+    marginLeft: 100
   },
   // 最外层的 container
   container1: {
     marginTop: 1125,
-    marginLeft: 224
+    marginLeft: 224,
+    textAlign: 'left'
   },
 }
 
@@ -135,7 +137,7 @@ export default {
   id: MaterialChannel.ylb,
   layouts: {
     sizeInfo: {
-      largeFontSize: '1706px',
+      largeFontSize: '1500px',
       normalFontSize: '680px',
       smallFontSize: '386px',
       miniFontSize: '257px',

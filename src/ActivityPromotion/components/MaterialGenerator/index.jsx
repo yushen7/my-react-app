@@ -26,11 +26,11 @@ const MaterialGenerator = ({ data, channel }) => {
               keepSize: true,
               className: channelInfo.id,
             })
-            console.log(fabricElements2HTML(calResult))
-            console.log(channelInfo.posterRatio, 'channelInfo')
+            // console.log(fabricElements2HTML(calResult))
+            // console.log(channelInfo.posterRatio, 'channelInfo')
           }}
         >
-          Show
+          Show {channel}
         </div>
         {/* <TemplateOne data={data} channel={channel} /> */}
         {/* <TemplateTwo data={data} channel={channel} /> */}

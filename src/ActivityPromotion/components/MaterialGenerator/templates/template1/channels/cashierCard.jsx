@@ -31,7 +31,7 @@ export const TopLayout = {
     width: '95.76%',
   },
   logoContainer: {
-    height: 50,
+    height: 185,
     width: '100%',
     display: 'flex',
     alignItems: 'center',
@@ -233,12 +233,14 @@ const ProductLayout = {
     paddingTop: 40
   },
   productTitle: {
-    marginTop: '56px',
+    marginTop: 56,
+    noCouponTop: 120,
     alignItems: 'end',
   },
   product: {
     marginTop: '0',
     marginLeft: '112px',
+    marginRight: '112px',
     position: 'relative',
   },
 }
