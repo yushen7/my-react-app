@@ -32,8 +32,8 @@ const MaterialGenerator = ({ data, channel }) => {
         >
           Show {channel}
         </div>
-        <TemplateOne data={data} channel={channel} />
-        {/* <TemplateTwo data={data} channel={channel} /> */}
+        {/* <TemplateOne data={data} channel={channel} /> */}
+        <TemplateTwo data={data} channel={channel} />
         {/* <TemplateThree data={data} channel={channel} /> */}
         {/* <TemplateOne data={data} channel={channel} />
         {template === ChannelTemplate.template1 && (

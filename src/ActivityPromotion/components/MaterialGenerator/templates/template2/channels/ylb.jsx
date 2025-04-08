@@ -104,9 +104,12 @@ export const TopLayout = {
   materialTimeDecorator: {
     type: 'image',
     width: '1500px',
+    height: '127px',
     position: 'absolute',
-    bottom: '5%',
-    left: '0',
+    // bottom: '5%',
+    // left: '0',
+    top: 3413,
+    left: 300,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/FpCBKbxEfv04vXfGu_VbDiWgl4DS.png',
   },
@@ -114,9 +117,12 @@ export const TopLayout = {
   materialYearDecorator: {
     type: 'image',
     width: '738px',
+    height: '127px',
     position: 'absolute',
-    bottom: '5%',
-    left: '0',
+    // bottom: '5%',
+    // left: '0',
+    top: 3413,
+    left: 3114,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/FnPh2CfoKHQjQ_qWPMP9okb1jmPR.png',
   },
@@ -125,6 +131,8 @@ export const TopLayout = {
     type: 'image',
     width: '1158px',
     height: '20px',
+    marginLeft: 56,
+    marginRight: 100,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fo7UE5unpOU03PiWj79At5_mtA90.png',
   },

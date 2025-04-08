@@ -1,6 +1,17 @@
 export const renderTopLayout = ({ processedStyle, channelId, data }) => {
   return (
     <>
+      <img
+        data-id={channelId}
+        src={processedStyle.materialTimeDecorator.content}
+        alt="time-decorator"
+        style={processedStyle.materialTimeDecorator}
+      />
+      <img
+        data-id={channelId}
+        src={processedStyle.materialYearDecorator.content}
+        style={processedStyle.materialYearDecorator}
+      />
       <div className="material-top">
         <div className="material-logo">
           {/* <div
@@ -60,12 +71,6 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
                 >
                   活动时间：
                 </div>
-                <img
-                  data-id={channelId}
-                  src={processedStyle.materialTimeDecorator.content}
-                  alt="time-decorator"
-                  style={processedStyle.materialTimeDecorator}
-                />
               </div>
               <img
                 data-id={channelId}
@@ -84,11 +89,6 @@ export const renderTopLayout = ({ processedStyle, channelId, data }) => {
                 >
                   {data.year}
                 </div>
-                <img
-                  data-id={channelId}
-                  src={processedStyle.materialYearDecorator.content}
-                  style={processedStyle.materialYearDecorator}
-                />
               </div>
 
               <img

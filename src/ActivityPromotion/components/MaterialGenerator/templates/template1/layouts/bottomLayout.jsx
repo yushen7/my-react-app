@@ -31,7 +31,7 @@ export function renderBottomLayout({ processedStyle, channelId, data }) {
         </div>
       </div>
       {
-f        processedStyle.qrCodeDecoration && (
+       processedStyle.qrCodeDecoration && (
           <img
             data-id={channelId}
             style={processedStyle.qrCodeDecoration}

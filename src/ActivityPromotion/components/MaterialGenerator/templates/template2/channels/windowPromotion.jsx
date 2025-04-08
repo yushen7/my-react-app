@@ -87,7 +87,6 @@ export const TopLayout = {
     fontSize: TimeLabelFontSize,
     lineHeight: TimeLabelFontSize,
     fontWeight: 900,
-    marginTop: 12
   },
   // 年份
   materialTimeYear: {
@@ -110,8 +109,10 @@ export const TopLayout = {
     type: 'image',
     width: '230px',
     position: 'absolute',
-    bottom: '5%',
-    left: '0',
+    // bottom: '5%',
+    // left: '0',
+    left: 46,
+    top: 387,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/FpCBKbxEfv04vXfGu_VbDiWgl4DS.png',
   },
@@ -120,24 +121,29 @@ export const TopLayout = {
     type: 'image',
     width: '114px',
     position: 'absolute',
-    bottom: '5%',
-    left: '0',
+    // bottom: '5%',
+    // left: '0',
+    left: 474,
+    top: 387,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/FnPh2CfoKHQjQ_qWPMP9okb1jmPR.png',
   },
   // 活动时间分割-短
   materialShortDivide: {
     type: 'image',
-    width: '12.9%',
+    width: 175,
     height: '3px',
+    marginLeft: 8,
+    marginRight: 15,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fo7UE5unpOU03PiWj79At5_mtA90.png',
   },
   // 活动时间日期
   materialLongDivide: {
     type: 'image',
-    width: '59.2%',
+    width: '800',
     height: '3px',
+    marginLeft: 12,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
   },

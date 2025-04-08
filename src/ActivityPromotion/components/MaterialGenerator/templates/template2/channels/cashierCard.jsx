@@ -95,6 +95,7 @@ export const TopLayout = {
     fontSize: TimeLabelFontSize,
     lineHeight: TimeLabelFontSize,
     fontWeight: 900,
+    marginTop: 26,
   },
   //具体时间 "TIME > MM/DD-MM/DD"
   materialTimeDate: {
@@ -109,9 +110,12 @@ export const TopLayout = {
   materialTimeDecorator: {
     type: 'image',
     width: 396,
+    height: 33,
     position: 'absolute',
-    bottom: '5%',
-    left: '0',
+    // bottom: '5%',
+    // left: '0',
+    top: 671,
+    left: 54,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/FpCBKbxEfv04vXfGu_VbDiWgl4DS.png',
   },
@@ -119,17 +123,22 @@ export const TopLayout = {
   materialYearDecorator: {
     type: 'image',
     width: 195,
+    height: 33,
     position: 'absolute',
-    bottom: '5%',
-    left: '0',
+    // bottom: '5%',
+    // left: '0',
+    top: 671,
+    left: 790,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/FnPh2CfoKHQjQ_qWPMP9okb1jmPR.png',
   },
   // 活动时间分割-短
   materialShortDivide: {
     type: 'image',
-    width: '12.9%',
-    height: '5px',
+    width: 300,
+    height: 5,
+    marginLeft: 14,
+    marginRight: 26,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fo7UE5unpOU03PiWj79At5_mtA90.png',
   },
@@ -138,6 +147,7 @@ export const TopLayout = {
     type: 'image',
     width: '59.2%',
     height: '5px',
+    marginLeft: 30,
     content:
       'https://img01.yzcdn.cn/upload_files/2025/03/17/Fsfu6CTksfJl5rgqd9r_k7h4--7w.png',
   },
@@ -247,6 +257,18 @@ export const BottomLayout = {
 export const renderExtra = ({ channelId, data }) => {
   return (
     <>
+      <img
+        data-id={channelId}
+        style={{
+          position: 'absolute',
+          top: 1344,
+          left: 1782,
+          width: 653,
+          height: 653,
+          zIndex: 2,
+        }}
+        src="https://img01.yzcdn.cn/upload_files/2025/04/07/Fk8AELUNEFIzOvQSHbByWV12KykD.png"
+      ></img>
       <img
         data-id={channelId}
         style={{
